@@ -14,7 +14,7 @@ import {bgColor} from '../util/theme';
 import ImgGrem from '../res/img/projects/grem.png';
 import ImgOto from '../res/img/projects/oto.png';
 import ImgSpectre from '../res/img/projects/spectre.png';
-import Img404 from '../res/img/projects/404.svg';
+import Img404 from '../res/img/projects/404.png';
 import {grey} from '@material-ui/core/colors';
 import strings from "../strings";
 
