@@ -217,7 +217,7 @@ class LandingPage extends Component {
             {this.getProject(strings.spectreTitle, strings.spectreDescription, ImgSpectre, 'http://spectrelabs.si/')}
             {this.getProject(strings.sistem404Title, strings.sistem404Description, Img404, 'https://404.si/')}
             {this.getProject(strings.otoTitle, strings.otoDescription, ImgOto, 'https://www.otobody.com/')}
-            {this.getProject(null, strings.otherDescription, null, null)}
+            {this.getProject(strings.otherTitle, strings.otherDescription, null, null)}
         </Fragment>;
     };
 

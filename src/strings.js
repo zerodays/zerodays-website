@@ -64,6 +64,7 @@ const strings = new LocalizedStrings({
             configurable through a custom backend to enable immediate publication of the latest video content.
         </Fragment>,
 
+        otherTitle: 'Our story',
         otherDescription: <Fragment>
             Zerodays team dates back to our high school years when we qualified for the <a target='_blank'
                                                                                            rel='noopener noreferrer'
