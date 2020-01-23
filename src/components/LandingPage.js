@@ -27,6 +27,9 @@ const styles = theme => ({
     subTitle: {
         fontSize: 20,
     },
+    companySubtitle: {
+        fontSize: 26,
+    },
     topBorder: {
         display: 'block',
         width: '100%',
@@ -279,15 +282,15 @@ class LandingPage extends Component {
                 <Container maxWidth='lg'>
                     <Box pt={5} mt={5} pb={5}>
                         <Typography variant='h1' className={clsx(classes.title, classes.textCenter)}
-                                    onClick={this.openDialog}>zerodays</Typography>
+                                    onClick={this.openDialog}>{strings.companyName}</Typography>
                     </Box>
                 </Container>
             </Grid>
             <Grid item xs={12}>
                 <Container maxWidth='lg'>
                     <Box pt={3} pb={5} mb={2}>
-                        <Typography className={clsx(classes.textCenter, classes.subTitle)}>
-                            Customized software and electronics development, computer security testing and consulting.
+                        <Typography className={clsx(classes.textCenter, classes.companySubtitle)}>
+                            {strings.companySubtitle}
                         </Typography>
                     </Box>
                 </Container>

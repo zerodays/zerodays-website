@@ -10,7 +10,7 @@ const strings = new LocalizedStrings({
     en: {
         // app name
         companyName: 'zerodays',
-        companySubtitle: 'Customized software and electronics development, computer security testing and consulting.',
+        companySubtitle: 'Customized software development.',
         ourProjectsInclude: 'Our projects include',
 
         // zeroday description
@@ -76,22 +76,18 @@ const strings = new LocalizedStrings({
             <ul>
                 <li>Best Earth Observation Hack in <a target='_blank' rel='noopener noreferrer'
                                                       href='https://dragonhack.si/'>Dragonhack
-                    2019</a>,
+                    2019</a> and
                 </li>
                 <li>Best Mobile Hack in <a target='_blank' rel='noopener noreferrer' href='https://dragonhack.si/'>Dragonhack
-                    2018</a> and
-                </li>
-                <li>1. place in <a target='_blank' rel='noopener noreferrer'
-                                   href='https://tekmovanja.acm.si/?q=upm/rezultati#rezultati_3kolo'>the 3.
-                    round</a> of <a
-                    href='https://tekmovanja.acm.si/?q=upm/predstavitev-tekmovanja'>UPM 2019</a> and combined <a
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    href='https://tekmovanja.acm.si/?q=upm/rezultati'>9.
-                    place</a>.
+                    2018</a>.
                 </li>
             </ul>
 
+            <br/>
+            <br/>
+            
+            We have also worked on several open source projects and maintain a non profit website <a href='https://vicstock.si/'>vicstock.si</a>.
+            
             <br/>
             <br/>
 
@@ -100,7 +96,7 @@ const strings = new LocalizedStrings({
 
         matejDescription: <Fragment>
             <ul>
-                <li>mobile Flutter developer</li>
+                <li>mobile developer</li>
                 <li>web developer</li>
                 <li>machine learning and data analysis</li>
             </ul>
@@ -110,15 +106,13 @@ const strings = new LocalizedStrings({
             <ul>
                 <li>backend developer</li>
                 <li>system administrator</li>
-                <li>penetration tester</li>
             </ul>
         </Fragment>,
 
         zigaDescription: <Fragment>
             <ul>
-                <li>mobile Flutter developer</li>
+                <li>mobile developer</li>
                 <li>web developer</li>
-                <li>embedded systems engineer</li>
             </ul>
         </Fragment>,
 
