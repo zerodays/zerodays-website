@@ -72,7 +72,9 @@ const strings = new LocalizedStrings({
             Computer Science League</a> finals and scored <a target='_blank' rel='noopener noreferrer'
                                                              href='https://www.acsl.org/acsl/results/2015-2016.htm'>second
             place</a> in the Intermediate 3 Division. Since then we have worked on numerous projects and participated in
-            countless competitions and hackathons. To name a few:
+            countless competitions and hackathons.
+
+            To name a few:
             <ul>
                 <li>Best Earth Observation Hack in <a target='_blank' rel='noopener noreferrer'
                                                       href='https://dragonhack.si/'>Dragonhack
@@ -98,7 +100,6 @@ const strings = new LocalizedStrings({
             <ul>
                 <li>mobile developer</li>
                 <li>web developer</li>
-                <li>machine learning and data analysis</li>
             </ul>
         </Fragment>,
 
