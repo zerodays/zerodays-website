@@ -117,8 +117,7 @@ const strings = new LocalizedStrings({
             </ul>
         </Fragment>,
 
-        contact: <Fragment>If you have a great idea (or a bad one indeed) we'd love to hear from you at <a
-            href='mailto:contact@zerodays.dev'>contact@zerodays.dev</a>.</Fragment>
+        contact: <Fragment>If you have a great idea (or a bad one indeed) we'd love to hear from you.</Fragment>
 
     },
 });

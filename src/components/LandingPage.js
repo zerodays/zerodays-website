@@ -77,6 +77,9 @@ const styles = theme => ({
         height: 96,
         borderRadius: 4,
     },
+    description: {
+        fontSize: 18,
+    }
 });
 
 class LandingPage extends Component {
@@ -95,7 +98,9 @@ class LandingPage extends Component {
             },
         }} fullWidth maxWidth='sm'>
             <DialogContent>
-                {strings.zerodayDescription(classes)}
+                <Box p={3}>
+                    {strings.zerodayDescription(classes)}
+                </Box>
             </DialogContent>
         </Dialog>;
     };
@@ -147,9 +152,9 @@ class LandingPage extends Component {
         return <Container maxWidth='lg'>
             <Box py={5} mt={4} mb={4}>
                 <Grid container direction='row' justify='center' spacing={3}>
-                    {this.getMember('Matej Marinko', 'matej.marinko@zerodays.dev', 'matejm', strings.matejDescription)}
-                    {this.getMember('Vid Drobnič', 'vid.drobnic@zerodays.dev', 'dzinvision', strings.vidDescription)}
-                    {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@zerodays.dev', 'zigapk', strings.zigaDescription)}
+                    {this.getMember('Matej Marinko', 'matej.marinko@404.si', 'matejm', strings.matejDescription)}
+                    {this.getMember('Vid Drobnič', 'vid.drobnic@404.si', 'dzinvision', strings.vidDescription)}
+                    {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@404.si', 'zigapk', strings.zigaDescription)}
                 </Grid>
             </Box>
         </Container>;
