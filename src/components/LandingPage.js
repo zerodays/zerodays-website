@@ -12,6 +12,7 @@ import {defaultStyles} from '../util/styles';
 import clsx from 'clsx';
 import {bgColor} from '../util/theme';
 import ImgGrem from '../res/img/projects/grem.png';
+import ImgSkoz from '../res/img/projects/skoz.svg';
 import ImgOto from '../res/img/projects/oto.png';
 import ImgSpectre from '../res/img/projects/spectre.png';
 import Img404 from '../res/img/projects/404.png';
@@ -225,6 +226,13 @@ class LandingPage extends Component {
             {this.getProject(strings.spectreTitle, strings.spectreDescription, ImgSpectre, 'http://spectrelabs.si/')}
             {this.getProject(strings.sistem404Title, strings.sistem404Description, Img404, 'https://404.si/')}
             {this.getProject(strings.otoTitle, strings.otoDescription, ImgOto, 'https://www.otobody.com/')}
+            {/* TODO: double link on click */}
+            {this.getProject(strings.skozTitle, strings.skozDescription, ImgSkoz, 'https://skoz.si/')}
+            {/* SKOZ */}
+            {/* MAKE3D */}
+            {/* ollo */}
+            {/* tampontrack */}
+            {/* wool2loop */}
             {/*{this.getProject(strings.otherTitle, strings.otherDescription, null, null)}*/}
         </Fragment>;
     };

@@ -64,6 +64,12 @@ const strings = new LocalizedStrings({
             configurable through a custom backend to enable immediate publication of the latest video content.
         </Fragment>,
 
+        // skoz
+        skozTitle: 'Educational platform SKOZ',
+        skozDescription: <Fragment>
+            Web platform SKOZ aims to enable easier planning and oversight of extra-curricular educational activities for high schools. It was developed under a national project in collaboration with <a href='https://404.si'>Zavod 404</a> and <a href='https://gimvic.org'>Gimnazija Vič</a>.
+        </Fragment>,
+
         otherTitle: 'Our story',
         otherDescription: <Fragment>
             Zerodays team dates back to our high school years when we qualified for the <a target='_blank'
