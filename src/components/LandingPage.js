@@ -33,11 +33,8 @@ const styles = theme => ({
         fontSize: 26,
     },
     liSpacing: {
-        '&: li': {
-            margin: '10px 0',
-        },
+        margin: '0 0 22px 0',
     },
-    //TODO liSpacing
     topBorder: {
         display: 'block',
         width: '100%',
@@ -229,7 +226,7 @@ class LandingPage extends Component {
     getOtherProjectsCard = () => {
         const {classes} = this.props;
 
-        return <Grid item xs={12} lg={8} xl={6} className={classes.textBlack}>
+        return <Grid item xs={12} lg={10} xl={8} className={classes.textBlack}>
             <Card className={classes.project} elevation={15}>
                 <Box p={3}>
                     <Grid container direction='row' justify='center'>
@@ -244,14 +241,13 @@ class LandingPage extends Component {
 
                         <Grid item xs={12}>
                             <Typography className={clsx(classes.projectDescription, classes.textCenter)}>
-                                <ul className={classes.liSpacing}>
-                                    <li>{strings.olloDescription}</li>
-                                    <li>{strings.tampontrackDescription}</li>
-                                    <li>{strings.wool2loopDescription}</li>
-                                    <li>{strings.thisWebsite}</li>
+                                <ul>
+                                    <li className={classes.liSpacing}>{strings.olloDescription}</li>
+                                    <li className={classes.liSpacing}>{strings.tampontrackDescription}</li>
+                                    <li className={classes.liSpacing}>{strings.wool2loopDescription}</li>
+                                    <li className={classes.liSpacing}>{strings.zascitimoSiDescription}</li>
+                                    <li className={classes.liSpacing}>{strings.thisWebsite}</li>
                                 </ul>
-                                {/* wool2loop */}
-                                {/* akcija.zascitimo.se */}
                             </Typography>
                         </Grid>
                     </Grid>
@@ -265,16 +261,20 @@ class LandingPage extends Component {
             <Grid item xs={0} xl={1}/> {/* move horizontally */}
 
             {this.getProject(strings.gremTitle, strings.gremDescription, ImgGrem, 'https://grem.app')}
+            <Grid item xs={0}/>
             {this.getProject(strings.spectreTitle, strings.spectreDescription, ImgSpectre, 'http://spectrelabs.si/')}
             <Grid item xs={12}/>
 
+            <Grid item xs={0}/>
             {this.getProject(strings.sistem404Title, strings.sistem404Description, Img404, 'https://404.si/')}
+            <Grid item xs={0}/>
             {this.getProject(strings.otoTitle, strings.otoDescription, ImgOto, 'https://www.otobody.com/')}
 
             <Grid item xs={12}/>
             <Grid item xs={0} xl={1}/> {/* move horizontally */}
             {/* TODO: double link opens on click on href element */}
             {this.getProject(strings.skozTitle, strings.skozDescription, ImgSkoz, 'https://skoz.si/')}
+            <Grid item xs={0}/>
             {this.getProject(strings.make3dTitle, strings.make3dDescription, ImgMake3d, 'https://make3d.io')}
 
             <Grid item xs={12}/>
@@ -294,7 +294,7 @@ class LandingPage extends Component {
                 <Grid item xs={12}>
                     <Container maxWidth='xl'>
                         <Box pt={2} pb={5}>
-                            <Grid container direction='row' justify='center' spacing={4}>
+                            <Grid container direction='row' justify='center' spacing={2}>
 
                                 <Grid item xs={12}>
                                     <Box pb={3} pt={3}>
