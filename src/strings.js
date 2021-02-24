@@ -70,6 +70,26 @@ const strings = new LocalizedStrings({
             Web platform SKOZ aims to enable easier planning and oversight of extra-curricular educational activities for high schools. It was developed under a national project in collaboration with <a href='https://404.si'>Zavod 404</a> and <a href='https://gimvic.org'>Gimnazija Vič</a>.
         </Fragment>,
 
+        // skoz
+        make3dTitle: 'Make3D',
+        make3dDescription: <Fragment>
+            Make3D connects 3D printing specialists with customers in a flawless and cost efficient manner. It allows for seamless testing and production of ideas and prototypes for various creators, innovators and tinkerers.
+        </Fragment>,
+
+        otherProjects: 'Other projects',
+        olloDescription: <Fragment>
+            Integration of <a href="https://www.minimax.si/">Minimax</a> and <a href="https://www.posta.si/">Post of Slovenia</a> APIs into the retail and distribution workflow of the <a href="https://olloaudio.com/">Ollo Audio</a> company.
+        </Fragment>,
+        tampontrackDescription: <Fragment>
+            <a href="">TamponTrack</a> mobile app for automated tracking of tampon usage in order to to ensure women's health and well-being.
+        </Fragment>,
+        wool2loopDescription: <Fragment>
+            <a href="https://www.wool2loop.eu/en/">Wool2loop</a> web platform for submission and oversight of .
+        </Fragment>,
+        thisWebsite: <Fragment>
+            This website (obviously).
+        </Fragment>,
+
         otherTitle: 'Our story',
         otherDescription: <Fragment>
             Zerodays team dates back to our high school years when we qualified for the <a target='_blank'

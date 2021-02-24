@@ -14,6 +14,7 @@ import {bgColor} from '../util/theme';
 import ImgGrem from '../res/img/projects/grem.png';
 import ImgSkoz from '../res/img/projects/skoz.svg';
 import ImgOto from '../res/img/projects/oto.png';
+import ImgMake3d from '../res/img/projects/make3d.svg';
 import ImgSpectre from '../res/img/projects/spectre.png';
 import Img404 from '../res/img/projects/404.png';
 import {grey} from '@material-ui/core/colors';
@@ -31,6 +32,12 @@ const styles = theme => ({
     companySubtitle: {
         fontSize: 26,
     },
+    liSpacing: {
+        '&: li': {
+            margin: '10px 0',
+        },
+    },
+    //TODO liSpacing
     topBorder: {
         display: 'block',
         width: '100%',
@@ -219,21 +226,60 @@ class LandingPage extends Component {
         </Grid>;
     };
 
+    getOtherProjectsCard = () => {
+        const {classes} = this.props;
+
+        return <Grid item xs={12} lg={8} xl={6} className={classes.textBlack}>
+            <Card className={classes.project} elevation={15}>
+                <Box p={3}>
+                    <Grid container direction='row' justify='center'>
+
+                        <Grid item xs={12}>
+                            <Box pt={1} pb={3}>
+                                <Typography className={clsx(classes.subTitle, classes.textCenter)}>
+                                    {strings.otherProjects}
+                                </Typography>
+                            </Box>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <Typography className={clsx(classes.projectDescription, classes.textCenter)}>
+                                <ul className={classes.liSpacing}>
+                                    <li>{strings.olloDescription}</li>
+                                    <li>{strings.tampontrackDescription}</li>
+                                    <li>{strings.wool2loopDescription}</li>
+                                    <li>{strings.thisWebsite}</li>
+                                </ul>
+                                {/* wool2loop */}
+                                {/* akcija.zascitimo.se */}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Card>
+        </Grid>;
+    };
+
     getProjectsList = () => {
         return <Fragment>
-            <Grid item xs={0} xl={1}/>
+            <Grid item xs={0} xl={1}/> {/* move horizontally */}
+
             {this.getProject(strings.gremTitle, strings.gremDescription, ImgGrem, 'https://grem.app')}
             {this.getProject(strings.spectreTitle, strings.spectreDescription, ImgSpectre, 'http://spectrelabs.si/')}
+            <Grid item xs={12}/>
+
             {this.getProject(strings.sistem404Title, strings.sistem404Description, Img404, 'https://404.si/')}
             {this.getProject(strings.otoTitle, strings.otoDescription, ImgOto, 'https://www.otobody.com/')}
-            {/* TODO: double link on click */}
+
+            <Grid item xs={12}/>
+            <Grid item xs={0} xl={1}/> {/* move horizontally */}
+            {/* TODO: double link opens on click on href element */}
             {this.getProject(strings.skozTitle, strings.skozDescription, ImgSkoz, 'https://skoz.si/')}
-            {/* SKOZ */}
-            {/* MAKE3D */}
-            {/* ollo */}
-            {/* tampontrack */}
-            {/* wool2loop */}
-            {/*{this.getProject(strings.otherTitle, strings.otherDescription, null, null)}*/}
+            {this.getProject(strings.make3dTitle, strings.make3dDescription, ImgMake3d, 'https://make3d.io')}
+
+            <Grid item xs={12}/>
+            {this.getOtherProjectsCard()}
+
         </Fragment>;
     };
 
