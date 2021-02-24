@@ -70,7 +70,7 @@ const strings = new LocalizedStrings({
             Web platform SKOZ aims to enable easier planning and oversight of extra-curricular educational activities for high schools. It was developed under a national project in collaboration with <a href='https://404.si'>Zavod 404</a> and <a href='https://gimvic.org'>Gimnazija Vič</a>.
         </Fragment>,
 
-        // skoz TODO
+        // skoz
         make3dTitle: 'Make3D',
         make3dDescription: <Fragment>
             Make3D was developed to connect 3D printing specialists with customers in a flawless and cost efficient manner. It allows for seamless testing and production of ideas and prototypes for various creators, innovators and tinkerers.
