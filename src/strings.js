@@ -62,7 +62,7 @@ const strings = new LocalizedStrings({
         // oto
         otoTitle: 'OTO mobile app',
         otoDescription: <Fragment>
-            We have developed a mobile app shipped together with the OTO Massage Shagger as a video guide medium. It is
+            We have developed a mobile app shipped together with the <a href='https://massageshagger.com/'>OTO Massage Shagger</a> as a video guide medium. It is
             configurable through a custom backend to enable immediate distribution of the latest video content.
         </Fragment>,
 

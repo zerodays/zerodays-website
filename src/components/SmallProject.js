@@ -59,14 +59,15 @@ class SmallProject extends Component {
     };
 
     getImageComponent = () => {
-        const {classes, dark, backgroundImage, logoImage, bcgOpacity, logoGridWidth} = this.props;
+        const {classes, dark, backgroundImage, logoImage, bcgOpacity, logoGridWidth, backgroundSize} = this.props;
         return <div className={classes.imageContainer}>
             {
                 backgroundImage ?
                     <div className={classes.abs} style={{
-                        background: `linear-gradient(rgba(20, 20, 20, ${bcgOpacity != null ? bcgOpacity : 0.4}), rgba(20, 20, 20, ${bcgOpacity  != null ? bcgOpacity : 0.4})) center center / cover, url("${backgroundImage}")`,
-                        backgroundSize: 'cover',
+                        background: `linear-gradient(rgba(20, 20, 20, ${bcgOpacity != null ? bcgOpacity : 0.4}), rgba(20, 20, 20, ${bcgOpacity != null ? bcgOpacity : 0.4})) center center / cover, url("${backgroundImage}")`,
+                        backgroundSize: backgroundSize == null ? 'cover' : backgroundSize,
                         backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
                     }}/> : null
             }
             {
@@ -118,6 +119,7 @@ SmallProject.propTypes = {
     logoImage: PropTypes.string,
     logoGridWidth: PropTypes.number,
     description: PropTypes.element.isRequired,
+    backgroundSize: PropTypes.string,
 }
 
 export default withStyles(styles)(SmallProject);

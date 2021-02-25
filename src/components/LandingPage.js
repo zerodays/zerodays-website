@@ -6,7 +6,7 @@ import {
     Box,
     Container,
     Card,
-    Dialog, DialogContent,
+    Dialog, DialogContent, Hidden,
 } from '@material-ui/core';
 import {defaultStyles} from '../util/styles';
 import clsx from 'clsx';
@@ -16,8 +16,9 @@ import olloBcgImage from '../res/img/projects/ollo.jpg';
 import olloLogo from '../res/img/projects/ollo_logo.png';
 import Img404 from '../res/img/projects/404.png';
 import dilaBcgImage from '../res/img/projects/dilaboards.jpg';
+import skozBcgImage from '../res/img/projects/skoz.svg';
 import wool2loopImage from '../res/img/projects/wool2loop.jpeg';
-import tampontrackImage from '../res/img/projects/tampontrack.png';
+import otoBcgImage from '../res/img/projects/oto.png';
 import zascitimoImage from '../res/img/projects/zascitimo.png';
 import sievaLogo from '../res/img/projects/sieva_logo.png';
 import {grey} from '@material-ui/core/colors';
@@ -252,29 +253,41 @@ class LandingPage extends Component {
 
     getProjectsList = () => {
         return <Fragment>
-            <Grid item xs={0} xl={1}/> {/* move horizontally */}
-            {this.getProject(strings.spectreTitle, strings.spectreDescription, <Spectre/>, 'http://spectrelabs.si/', true)}
-            <Grid item xs={0}/>
+            {this.getProject(strings.spectreTitle, strings.spectreDescription,
+                <Spectre/>, 'http://spectrelabs.si/', true)}
             {this.getProject(strings.gremTitle, strings.gremDescription, this.getImageComponent(ImgGrem), 'https://grem.app')}
-            <Grid item xs={12}/>
 
-            <Grid item xs={0}/>
             {this.getProject(strings.sistem404Title, strings.sistem404Description, this.getImageComponent(Img404), 'https://404.si/')}
-            <Grid item xs={0}/>
             {/* TODO: double link opens on click on href element */}
             {this.getProject(null, strings.make3dDescription, <Make3d/>, 'https://make3d.io', true)}
-            <Grid item xs={12}/>
-            <Grid item xs={12}/>
 
-            {/*{this.getProject(strings.skozTitle, strings.skozDescription, this.getImageComponent(ImgSkoz), 'https://skoz.si/')}*/}
-            <Grid item xs={0} xl={1}/> {/* move horizontally */}
-            <SmallProject backgroundImage={olloBcgImage} logoImage={olloLogo} dark description={strings.olloDescription}/>
-            <SmallProject logoImage={tampontrackImage} description={strings.tampontrackDescription} logoGridWidth={7}/>
+            <Hidden lgDown>
+                <Grid item xs={12}/>
+            </Hidden>
+
+
+            <Hidden lgDown>
+                <Grid item xs={1}/>
+            </Hidden>
+
+            <SmallProject backgroundImage={olloBcgImage} logoImage={olloLogo} dark
+                          description={strings.olloDescription}/>
+            {/*<SmallProject logoImage={tampontrackImage} description={strings.tampontrackDescription} logoGridWidth={7}/>*/}
+            <SmallProject logoImage={skozBcgImage} logoGridWidth={6} description={strings.skozDescription} bcgOpacity={0}/>
             <SmallProject backgroundImage={dilaBcgImage} dark description={strings.dilaDescription} bcgOpacity={0.1}/>
-            <Grid item xs={12}/>
+
+            <Hidden lgDown>
+                <Grid item xs={1}/>
+            </Hidden>
+
             <SmallProject logoImage={sievaLogo} logoGridWidth={6} description={strings.sievaDescription}/>
             <SmallProject backgroundImage={wool2loopImage} dark description={strings.wool2loopDescription}/>
             <SmallProject backgroundImage={zascitimoImage} description={strings.zascitimoSiDescription} bcgOpacity={0}/>
+
+
+            <SmallProject backgroundImage={otoBcgImage} description={strings.otoDescription} bcgOpacity={0} backgroundSize='auto 96%'/>
+
+
         </Fragment>;
     };
 
@@ -289,7 +302,7 @@ class LandingPage extends Component {
                 <Grid item xs={12}>
                     <Container maxWidth='xl'>
                         <Box pt={2} pb={5}>
-                            <Grid container direction='row' justify='center' spacing={2}>
+                            <Grid container direction='row' justify='center' spacing={4}>
 
                                 <Grid item xs={12}>
                                     <Box pb={3} pt={3}>
