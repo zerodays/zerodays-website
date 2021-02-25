@@ -60,7 +60,7 @@ class Spectre extends Component {
             <Grid container direction='column' justify='center' className={classes.abs}>
                 <Grid item>
                     <Grid container direction='row' justify='center'>
-                        <Grid item xs={5}>
+                        <Grid item xs={6}>
                             <img src={spectreLogoImage} alt='spectre laboratories logo' className={classes.w100}/>
                         </Grid>
                     </Grid>
