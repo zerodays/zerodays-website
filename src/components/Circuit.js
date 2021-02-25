@@ -68,7 +68,7 @@ class Circuit extends Component {
         </defs>
         <g id="module-01" transform="translate(-1.000000, 0.000000)" className={clsx(classes.path, classes.path01)}
            stroke="url(#linear)"
-           strokeWidth="4" fill="none" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
+           strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C23" transform="translate(177.000000, 0.000000)">
             <polyline points="52 92 84 92 116 60 116 0"></polyline>
@@ -231,7 +231,7 @@ class Circuit extends Component {
         </g>
         <g id="module-02" transform="translate(599.000000, 0.000000)" className={clsx(classes.path, classes.path02)}
            stroke="url(#linear)"
-           strokeWidth="4" fill="none" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
+           strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C12" transform="translate(377.000000, 0.000000)">
             <polyline points="52 92 84 92 116 60 116 0"></polyline>
@@ -320,7 +320,7 @@ class Circuit extends Component {
         </g>
         <g id="module-03" transform="translate(1024.000000, 164.000000)" className={clsx(classes.path, classes.path03)}
            stroke="url(#linear)"
-           strokeWidth="4" fill="none" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
+           strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C11" transform="translate(8.000000, 0.000000)">
             <polyline
@@ -437,7 +437,7 @@ class Circuit extends Component {
         </g>
         <g id="module-04" transform="translate(1532.000000, 115.000000)" className={clsx(classes.path, classes.path04)}
            stroke="url(#linear)"
-           strokeWidth="4" fill="none" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
+           strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C19">
             <polyline points="368 361 428 361 444.03122 344.96878 492 344.96878 539.000005 344.96878"></polyline>
@@ -535,7 +535,7 @@ class Circuit extends Component {
         </g>
         <g id="module-05" transform="translate(1908.000000, 0.000000)" className={clsx(classes.path, classes.path05)}
            stroke="url(#linear)"
-           strokeWidth="4" fill="none" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
+           strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C13">
             <polyline points="272 196 288 196 300 208 300 224 324 248 416 248 421 243 428 243"></polyline>
