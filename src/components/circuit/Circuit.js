@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import clsx from 'clsx';
-import { defaultStyles } from '../util/styles';
+import { defaultStyles } from '../../util/styles';
 import {
   withStyles,
 } from '@material-ui/core';
-
-const bgColor = '#fff';
+import './styles.css';
+import { blue, grey } from '@material-ui/core/colors';
 
 const styles = theme => ({
   ...defaultStyles(theme),
@@ -15,59 +14,29 @@ const styles = theme => ({
     height: '100%',
     overflow: 'hidden',
   },
-  '@keyframes draw': {
-    '0%': {},
-    '100%': {
-      strokeDashoffset: 0,
-      strokeOpacity: 1,
-    },
-  },
-  svg: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: bgColor,
-  },
-  path: {
-    animation: 'draw 20s infinite',
-    animationTimingFunction: 'linear',
-  },
-  path01: {
-    animationDelay: '0s',
-  },
-  path02: {
-    animationDelay: '1s',
-  },
-  path03: {
-    animationDelay: '2s',
-  },
-  path04: {
-    animationDelay: '3s',
-  },
-  path05: {
-    animationDelay: '4s',
-  },
 });
 
 /*
 * Copied and modified from https://dribbble.com/shots/3433250-Circuit-Animation-SVG-CSS
 * */
+const stopColor = grey[700];
+const startColor = blue[900];
+const componentsColor = grey[800];
+const wiresColor = grey[800];
 
 class Circuit extends Component {
   render() {
     const {classes} = this.props;
     return <div className={classes.root}>
-      <svg width="2400px" height="1600px" viewBox="0 0 2400 1600" version="1.1" xmlns="http://www.w3.org/2000/svg"
-           className={classes.svg}>
+      <svg className=".circuit" width="2400px" height="1600px" viewBox="0 0 2400 1600" version="1.1"
+           xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#148BB1"/>
-            <stop offset="100%" stopColor="#DBE2E8"/>
+            <stop offset="0%" stopColor={stopColor}/>
+            <stop offset="100%" stopColor={startColor}/>
           </linearGradient>
         </defs>
-        <g id="module-01" transform="translate(-1.000000, 0.000000)" className={clsx(classes.path, classes.path01)}
-           stroke="url(#linear)"
+        <g id="module-01" transform="translate(-1.000000, 0.000000)" className="path path-01" stroke="url(#linear)"
            strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C23" transform="translate(177.000000, 0.000000)">
@@ -229,8 +198,7 @@ class Circuit extends Component {
             <polyline points="268 168 268 164 304 128 304 0"></polyline>
           </g>
         </g>
-        <g id="module-02" transform="translate(599.000000, 0.000000)" className={clsx(classes.path, classes.path02)}
-           stroke="url(#linear)"
+        <g id="module-02" transform="translate(599.000000, 0.000000)" className="path path-02" stroke="url(#linear)"
            strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C12" transform="translate(377.000000, 0.000000)">
@@ -318,8 +286,7 @@ class Circuit extends Component {
               points="93 329 93 309 121.017851 280.982149 169.010795 280.982149 177.996472 271.996471 177.996472 192.993715 149.001378 163.998622 149.001378 41 108.988174 0.986795729 100.999989 0.986795729"></polyline>
           </g>
         </g>
-        <g id="module-03" transform="translate(1024.000000, 164.000000)" className={clsx(classes.path, classes.path03)}
-           stroke="url(#linear)"
+        <g id="module-03" transform="translate(1024.000000, 164.000000)" className="path path-03" stroke="url(#linear)"
            strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C11" transform="translate(8.000000, 0.000000)">
@@ -435,8 +402,7 @@ class Circuit extends Component {
             <polyline points="64 136 60 136 52 128 52 124"></polyline>
           </g>
         </g>
-        <g id="module-04" transform="translate(1532.000000, 115.000000)" className={clsx(classes.path, classes.path04)}
-           stroke="url(#linear)"
+        <g id="module-04" transform="translate(1532.000000, 115.000000)" className="path path-04" stroke="url(#linear)"
            strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C19">
@@ -533,8 +499,7 @@ class Circuit extends Component {
             <polyline points="364 325 364 241 384 221 384 201"></polyline>
           </g>
         </g>
-        <g id="module-05" transform="translate(1908.000000, 0.000000)" className={clsx(classes.path, classes.path05)}
-           stroke="url(#linear)"
+        <g id="module-05" transform="translate(1908.000000, 0.000000)" className="path path-05" stroke="url(#linear)"
            strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C13">
@@ -606,7 +571,7 @@ class Circuit extends Component {
         </g>
 
 
-        <g id="static" transform="translate(48.000000, 56.000000)" stroke="#DDE0E2" strokeWidth="2" fill="none"
+        <g id="static" transform="translate(48.000000, 56.000000)" stroke={componentsColor} strokeWidth="2" fill="none"
            fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
           <rect x="132" y="0" width="48" height="48" rx="4"></rect>
           <circle cx="172" cy="200" r="4"></circle>
@@ -918,7 +883,7 @@ class Circuit extends Component {
           <circle cx="1811" cy="1280" r="4"></circle>
         </g>
 
-        <g id="paths-bg" transform="translate(0.000000, 0.000000)" stroke="#DDE0E2" strokeWidth="2" fill="none"
+        <g id="paths-bg" transform="translate(0.000000, 0.000000)" stroke={wiresColor} strokeWidth="2" fill="none"
            fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
           <g id="C23" transform="translate(176.000000, 0.000000)">
             <polyline id="path" points="52 92 84 92 116 60 116 0"></polyline>

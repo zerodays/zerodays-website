@@ -1,0 +1,36 @@
+.circuit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.path {
+    animation: draw 100s infinite;
+    animation-timing-function: linear;
+}
+.path-01 {
+    animation-delay: 0s;
+}
+.path-02 {
+    animation-delay: 20s;
+}
+.path-03 {
+    animation-delay: 40s;
+}
+.path-04 {
+    animation-delay: 60s;
+}
+.path-05 {
+    animation-delay: 80s;
+}
+
+
+
+@keyframes draw {
+    0% {
+    }
+    100% {
+        stroke-dashoffset: 0;
+        stroke-opacity: 1;
+    }
+}
