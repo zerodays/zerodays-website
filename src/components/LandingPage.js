@@ -241,9 +241,17 @@ class LandingPage extends Component {
 
           {/* TODO: padding */}
 
+
           <Grid item xs={12}>
-            <Tags tags={tags} dark={dark}/>
-            <Tags tags={frameworkTags} dark={dark} textOnly/>
+            <Grid container direction='column' justify='flex-end' className={classes.h100}>
+              <Grid item>
+                <Box px={3} pb={3}>
+                  <Tags tags={tags} dark={dark}/>
+                  <Box pt={1}/>
+                  <Tags tags={frameworkTags} dark={dark} textOnly/>
+                </Box>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Card>
@@ -263,7 +271,7 @@ class LandingPage extends Component {
     return <Fragment>
       {this.getProject(strings.spectreTitle, strings.spectreDescription,
         <Spectre/>, 'http://spectrelabs.si/', [TagsEnum.robotics, TagsEnum.sys_admin], ['python', 'react'], true)}
-      {this.getProject(strings.gremTitle, strings.gremDescription, this.getImageComponent(ImgGrem), 'https://grem.app', [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login'])}
+      {this.getProject(strings.gremTitle, strings.gremDescription, this.getImageComponent(ImgGrem), 'https://grem.app', [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login', 'firebase'])}
 
       {this.getProject(strings.sistem404Title, strings.sistem404Description, this.getImageComponent(Img404), 'https://404.si/', [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'minimax', 'google login', 'google calendar'])}
       {/* TODO: double link opens on click on href element */}

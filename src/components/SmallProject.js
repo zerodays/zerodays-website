@@ -106,8 +106,19 @@ class SmallProject extends Component {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Tags tags={tags}/>
-            <Tags tags={frameworkTags} textOnly/>
+            {/*<Tags tags={tags} dark={dark}/>*/}
+            {/*<Tags tags={frameworkTags} dark={dark} textOnly/>*/}
+
+            <Grid container direction='column' justify='flex-end' className={classes.h100}>
+              <Grid item>
+                <Box px={3} pb={3}>
+                  <Tags tags={tags} dark={dark}/>
+                  <Box pt={1}/>
+                  <Tags tags={frameworkTags} dark={dark} textOnly/>
+                </Box>
+              </Grid>
+            </Grid>
+
           </Grid>
         </Grid>
       </Card>

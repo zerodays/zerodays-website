@@ -17,16 +17,44 @@ import {
   Memory,
 } from '@material-ui/icons';
 import strings from '../strings';
-import { grey } from '@material-ui/core/colors';
+import { blue, grey } from '@material-ui/core/colors';
+import clsx from 'clsx';
+import { bgColor, primary } from '../util/theme';
 
 
 const styles = theme => ({
   ...defaultStyles(theme),
-  dark: {
+  darkWithIcon: {
     color: 'white',
+    backgroundColor: grey[800],
+    borderColor: grey[800],
+    '& > svg': {
+      color: 'white',
+    },
   },
-  light: {
+  lightWithIcon: {
+    color: grey[800],
+    borderColor: blue[50],
+    backgroundColor: blue[50],
+    '& > svg': {
+      color: grey[800],
+    },
+  },
+  darkWithoutIcon: {
+    borderColor: grey[800],
+  },
+  lightWithoutIcon: {
     color: grey[600],
+    borderColor: grey[300],
+  },
+  tag: {
+    '& > svg': {
+      marginLeft: '8px !important',
+      marginRight: '-2px !important',
+    },
+  },
+  withIcon: {
+    backgroundColor: primary,
   },
 });
 
@@ -78,22 +106,31 @@ class Tags extends Component {
     if (title == null) return null;
 
     return <Grid item key={data}>
-      <Chip
-        variant='outlined'
-        icon={textOnly ? null : icon}
-        className={dark ? classes.dark : classes.light}
-        label={title}
-      />
+      {icon == null ?
+        <Chip
+          variant='outlined'
+          size='small'
+          icon={textOnly ? null : icon}
+          className={clsx(classes.tag, dark ? classes.darkWithoutIcon : classes.lightWithoutIcon)}
+          label={title}
+        />
+        :
+        <Chip
+          size='small'
+          variant='outlined'
+          icon={textOnly ? null : icon}
+          className={clsx(classes.tag, dark ? classes.darkWithIcon : classes.lightWithIcon)}
+          label={title}
+        />
+      }
     </Grid>;
   };
 
   render() {
     const {tags} = this.props;
-    return <Box px={3} pb={3}>
-      <Grid container direction='row' justify='flex-start' alignItems='center' spacing={1}>
+    return <Grid container direction='row' justify='flex-start' alignItems='center' spacing={1}>
         {tags.map(item => this.renderTag(item))}
-      </Grid>
-    </Box>;
+      </Grid>;
   }
 }
 
