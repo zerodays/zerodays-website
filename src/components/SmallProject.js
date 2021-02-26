@@ -9,6 +9,7 @@ import {
 import PropTypes from 'prop-types';
 import {bgColor} from "../util/theme";
 import {grey} from "@material-ui/core/colors";
+import Tags from "./Tags";
 
 const styles = theme => ({
     ...defaultStyles(theme),
@@ -89,7 +90,7 @@ class SmallProject extends Component {
     }
 
     render() {
-        const {classes, dark, url, title, description} = this.props;
+        const {classes, dark, description, tags, frameworkTags} = this.props;
 
         return <Grid item xs={12} md={6} lg={4} xl={3}>
             <Card style={{backgroundColor: dark ? bgColor : 'white'}}
@@ -104,6 +105,10 @@ class SmallProject extends Component {
                             </Typography>
                         </Box>
                     </Grid>
+                    <Grid item xs={12}>
+                        <Tags tags={tags}/>
+                        <Tags tags={frameworkTags} textOnly/>
+                    </Grid>
                 </Grid>
             </Card>
         </Grid>;
@@ -112,14 +117,14 @@ class SmallProject extends Component {
 
 SmallProject.propTypes = {
     dark: PropTypes.bool,
-    url: PropTypes.string,
-    title: PropTypes.string,
     bcgOpacity: PropTypes.number,
     backgroundImage: PropTypes.string,
     logoImage: PropTypes.string,
     logoGridWidth: PropTypes.number,
     description: PropTypes.element.isRequired,
     backgroundSize: PropTypes.string,
+    tags: PropTypes.array.isRequired,
+    frameworkTags: PropTypes.array.isRequired,
 }
 
 export default withStyles(styles)(SmallProject);

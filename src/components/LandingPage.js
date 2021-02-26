@@ -27,6 +27,8 @@ import Circuit from './Circuit';
 import Make3d from "./Make3d";
 import Spectre from "./Spectre";
 import SmallProject from "./SmallProject";
+import Tags from "./Tags";
+import {TagsEnum} from "../util/helpers";
 
 const styles = theme => ({
     ...defaultStyles(theme),
@@ -205,7 +207,7 @@ class LandingPage extends Component {
         if (url != null) window.open(url, '_blank');
     };
 
-    getProject = (title, text, image, url, dark) => {
+    getProject = (title, text, image, url, tags, frameworkTags, dark) => {
         const {classes} = this.props;
 
         return <Grid item xs={12} lg={6} xl={5} className={dark ? classes.textWhite : classes.textBlack}>
@@ -237,6 +239,13 @@ class LandingPage extends Component {
                             </Typography>
                         </Box>
                     </Grid>
+
+                    {/* TODO: padding */}
+
+                    <Grid item xs={12}>
+                        <Tags tags={tags} dark={dark}/>
+                        <Tags tags={frameworkTags} dark={dark} textOnly/>
+                    </Grid>
                 </Grid>
             </Card>
         </Grid>;
@@ -254,12 +263,13 @@ class LandingPage extends Component {
     getProjectsList = () => {
         return <Fragment>
             {this.getProject(strings.spectreTitle, strings.spectreDescription,
-                <Spectre/>, 'http://spectrelabs.si/', true)}
-            {this.getProject(strings.gremTitle, strings.gremDescription, this.getImageComponent(ImgGrem), 'https://grem.app')}
+                <Spectre/>, 'http://spectrelabs.si/', [TagsEnum.robotics, TagsEnum.sys_admin], ['python', 'react'], true)}
+            {this.getProject(strings.gremTitle, strings.gremDescription, this.getImageComponent(ImgGrem), 'https://grem.app', [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login'])}
 
-            {this.getProject(strings.sistem404Title, strings.sistem404Description, this.getImageComponent(Img404), 'https://404.si/')}
+            {this.getProject(strings.sistem404Title, strings.sistem404Description, this.getImageComponent(Img404), 'https://404.si/', [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'minimax', 'google login', 'google calendar'])}
             {/* TODO: double link opens on click on href element */}
-            {this.getProject(null, strings.make3dDescription, <Make3d/>, 'https://make3d.io', true)}
+            {this.getProject(null, strings.make3dDescription,
+                <Make3d/>, 'https://make3d.io', [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'firebase', 'here maps'], true)}
 
             <Hidden lgDown>
                 <Grid item xs={12}/>
@@ -271,23 +281,37 @@ class LandingPage extends Component {
             </Hidden>
 
             <SmallProject backgroundImage={olloBcgImage} logoImage={olloLogo} dark
-                          description={strings.olloDescription}/>
+                          description={strings.olloDescription} tags={[TagsEnum.backend]}
+                          frameworkTags={['go', 'shopify', 'minimax']}
+
+            />
             {/*<SmallProject logoImage={tampontrackImage} description={strings.tampontrackDescription} logoGridWidth={7}/>*/}
-            <SmallProject logoImage={skozBcgImage} logoGridWidth={6} description={strings.skozDescription} bcgOpacity={0}/>
-            <SmallProject backgroundImage={dilaBcgImage} dark description={strings.dilaDescription} bcgOpacity={0.1}/>
+            <SmallProject backgroundImage={otoBcgImage} description={strings.otoDescription} bcgOpacity={0}
+                          tags={[TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend]}
+                          frameworkTags={['django', 'flutter']}
+                          backgroundSize='auto 96%'/>
+            <SmallProject backgroundImage={dilaBcgImage} dark description={strings.dilaDescription} bcgOpacity={0.1}
+                          frameworkTags={['django', 'paypal']}
+                          tags={[TagsEnum.web, TagsEnum.backend]}/>
 
             <Hidden lgDown>
                 <Grid item xs={1}/>
             </Hidden>
 
-            <SmallProject logoImage={sievaLogo} logoGridWidth={6} description={strings.sievaDescription}/>
-            <SmallProject backgroundImage={wool2loopImage} dark description={strings.wool2loopDescription}/>
-            <SmallProject backgroundImage={zascitimoImage} description={strings.zascitimoSiDescription} bcgOpacity={0}/>
+            <SmallProject logoImage={sievaLogo} logoGridWidth={6} description={strings.sievaDescription}
+                          tags={[TagsEnum.backend]} frameworkTags={['django', 'stripe']}/>
+            <SmallProject backgroundImage={wool2loopImage} dark description={strings.wool2loopDescription}
+                          tags={[TagsEnum.web, TagsEnum.backend]} frameworkTags={['go', 'react']}/>
+            <SmallProject backgroundImage={zascitimoImage} description={strings.zascitimoSiDescription} bcgOpacity={0}
+                          tags={[TagsEnum.web, TagsEnum.backend]} frameworkTags={['django', 'bootstrap']}/>
+
+            <SmallProject logoImage={skozBcgImage} logoGridWidth={6} description={strings.skozDescription}
+                          frameworkTags={['django', 'bootstrap']}
+                          bcgOpacity={0} tags={[TagsEnum.web, TagsEnum.backend]}/>
 
 
-            <SmallProject backgroundImage={otoBcgImage} description={strings.otoDescription} bcgOpacity={0} backgroundSize='auto 96%'/>
-
-
+            {/* TODO: this website */}
+            {/* TODO: links in new tab */}
         </Fragment>;
     };
 

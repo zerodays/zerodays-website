@@ -13,6 +13,14 @@ const strings = new LocalizedStrings({
         companySubtitle: 'Customized software development.',
         ourProjectsInclude: 'Our projects include',
 
+        // tags
+        web: 'web',
+        android: 'android',
+        ios: 'ios',
+        backend: 'backend',
+        sysAdmin: 'sys admin',
+        robotics: 'robotics',
+
         // zeroday description
         prefix: 'A',
         zerodayDescription: (classes) => (
