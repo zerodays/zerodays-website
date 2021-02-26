@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { TagsEnum } from '../util/helpers';
 import {
   Grid,
-  Box,
   Chip,
   withStyles,
 } from '@material-ui/core';
@@ -17,9 +16,9 @@ import {
   Memory,
 } from '@material-ui/icons';
 import strings from '../strings';
-import { blue, grey } from '@material-ui/core/colors';
+import { grey } from '@material-ui/core/colors';
 import clsx from 'clsx';
-import { bgColor, primary } from '../util/theme';
+import { primary } from '../util/theme';
 
 
 const styles = theme => ({
@@ -33,11 +32,11 @@ const styles = theme => ({
     },
   },
   lightWithIcon: {
-    color: grey[800],
-    borderColor: blue[50],
-    backgroundColor: blue[50],
+    color: grey[700],
+    borderColor: grey[200],
+    backgroundColor: grey[200],
     '& > svg': {
-      color: grey[800],
+      color: grey[500],
     },
   },
   darkWithoutIcon: {
