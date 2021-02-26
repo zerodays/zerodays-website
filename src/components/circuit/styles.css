@@ -5,23 +5,23 @@
     transform: translate(-50%, -50%);
 }
 .path {
-    animation: draw 100s infinite;
+    animation: draw 120s infinite;
     animation-timing-function: linear;
 }
 .path-01 {
     animation-delay: 0s;
 }
 .path-02 {
-    animation-delay: 20s;
+    animation-delay: 2s;
 }
 .path-03 {
-    animation-delay: 40s;
+    animation-delay: 4s;
 }
 .path-04 {
-    animation-delay: 60s;
+    animation-delay: 6s;
 }
 .path-05 {
-    animation-delay: 80s;
+    animation-delay: 8s;
 }
 
 

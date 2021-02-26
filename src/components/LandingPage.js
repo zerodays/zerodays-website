@@ -28,6 +28,7 @@ import Spectre from './Spectre';
 import SmallProject from './SmallProject';
 import Tags from './Tags';
 import { TagsEnum } from '../util/helpers';
+import Circuit from './circuit/Circuit';
 
 const styles = theme => ({
   ...defaultStyles(theme),
@@ -43,14 +44,6 @@ const styles = theme => ({
   },
   liSpacing: {
     margin: '0 0 22px 0',
-  },
-  topBorder: {
-    display: 'block',
-    width: '100%',
-    height: '110px',
-    marginTop: -2,
-    filter: 'drop-shadow( 0px 5px 5px rgba(20, 20, 20, .7))',
-    clipPath: 'inset(0px -5px -15px -5px)',
   },
   darkCard: {
     backgroundColor: bgColor,
@@ -103,6 +96,31 @@ const styles = theme => ({
   },
   description: {
     fontSize: 18,
+  },
+  headerShadowContainer: {
+    filter: 'drop-shadow( 0px 5px 5px rgba(20, 20, 20, .7))',
+  },
+  header: {
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    clipPath: 'polygon(0 0, 100% 0, 100% calc(90% - 40px), 0% 100%)',
+
+  },
+  circuit: {
+    boxSizing: 'border-box',
+    width: '100%',
+    flex: 'none',
+    zIndex: 0,
+  },
+  headerContent: {
+    boxSizing: 'border-box',
+    width: '100%',
+    flex: 'none',
+    marginLeft: '-100%',
+    zIndex: 1,
+  },
+  bgWhite: {
+    backgroundColor: 'white',
   },
 });
 
@@ -187,9 +205,9 @@ class LandingPage extends Component {
   getTopShadow = () => {
     const {classes} = this.props;
     return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
-                fill='transparent'
+                fill='white'
                 className={classes.topBorder}>
-      <polygon points="0,0 100,0 100,25 0,100" fill={bgColor}/>
+      <polygon points="0,0 100,0 100,25 0,100" fill='green'/>
     </svg>;
   };
 
@@ -331,10 +349,6 @@ class LandingPage extends Component {
     return <div className={classes.projects}>
       <Grid container direction='row' justify='center'>
         <Grid item xs={12}>
-          {this.getTopShadow()}
-        </Grid>
-
-        <Grid item xs={12}>
           <Container maxWidth='xl'>
             <Box pt={2} pb={5}>
               <Grid container direction='row' justify='center' spacing={4}>
@@ -376,32 +390,50 @@ class LandingPage extends Component {
     </Container>;
   };
 
+  getHeader = () => {
+    const {classes} = this.props;
+    return <div className={classes.headerShadowContainer}>
+      <div className={classes.header}>
+        <div className={classes.circuit}>
+          <Circuit height={440}/>
+        </div>
+        <div className={classes.headerContent}>
+          <Box pb={5}>
+            <Grid container direction='row' justify='center'>
+              <Grid item>
+                <Container maxWidth='lg'>
+                  <Box pt={3} mt={5} pb={3}>
+                    <Typography variant='h1' className={clsx(classes.title, classes.textCenter)}
+                                onClick={this.openDialog}>{strings.companyName}</Typography>
+                  </Box>
+                </Container>
+              </Grid>
+              <Grid item xs={12}>
+                <Container maxWidth='lg'>
+                  <Box pt={3} pb={5} mb={2}>
+                    <Typography className={clsx(classes.textCenter, classes.companySubtitle)}>
+                      {strings.companySubtitle}
+                    </Typography>
+                  </Box>
+                </Container>
+              </Grid>
+              {/*<Grid item xs={12} style={{backgroundColor: 'white'}}>*/}
+              {/*{this.getTopShadow()}*/}
+              {/*</Grid>*/}
+            </Grid>
+          </Box>
+        </div>
+      </div>
+    </div>;
+  };
+
 
   render() {
     const {classes} = this.props;
-    return <Grid container direction='row' justify='center'>
-      <Grid item>
-        <Container maxWidth='lg'>
-          <Box pt={5} mt={5} pb={5}>
-            <Typography variant='h1' className={clsx(classes.title, classes.textCenter)}
-                        onClick={this.openDialog}>{strings.companyName}</Typography>
-          </Box>
-        </Container>
-      </Grid>
+    return <Grid container direction='row' justify='center' className={classes.bgWhite}>
       <Grid item xs={12}>
-        <Container maxWidth='lg'>
-          <Box pt={3} pb={5} mb={2}>
-            <Typography className={clsx(classes.textCenter, classes.companySubtitle)}>
-              {strings.companySubtitle}
-            </Typography>
-          </Box>
-        </Container>
+        {this.getHeader()}
       </Grid>
-      {/*<Grid item xs={12}>*/}
-      {/*  <div style={{height: 500}}>*/}
-      {/*  <Circuit/>*/}
-      {/*  </div>*/}
-      {/*</Grid>*/}
       <Grid item xs={12}>
         {this.getProjects()}
       </Grid>

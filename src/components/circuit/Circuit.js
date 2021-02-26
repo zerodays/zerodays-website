@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { defaultStyles } from '../../util/styles';
 import {
   withStyles,
 } from '@material-ui/core';
 import './styles.css';
 import { blue, grey } from '@material-ui/core/colors';
+import { bgColor } from '../../util/theme';
 
 const styles = theme => ({
   ...defaultStyles(theme),
@@ -13,22 +15,23 @@ const styles = theme => ({
     width: '100%',
     height: '100%',
     overflow: 'hidden',
+    backgroundColor: bgColor,
   },
 });
 
 /*
 * Copied and modified from https://dribbble.com/shots/3433250-Circuit-Animation-SVG-CSS
 * */
-const stopColor = grey[700];
+const stopColor = grey[800];
 const startColor = blue[900];
-const componentsColor = grey[800];
-const wiresColor = grey[800];
+const componentsColor = '#222222';
+const wiresColor = '#222222';
 
 class Circuit extends Component {
   render() {
-    const {classes} = this.props;
+    const {classes, height} = this.props;
     return <div className={classes.root}>
-      <svg className=".circuit" width="2400px" height="1600px" viewBox="0 0 2400 1600" version="1.1"
+      <svg className=".circuit" width="100%" height={height} version="1.1"
            xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -1422,6 +1425,10 @@ class Circuit extends Component {
       </svg>
     </div>;
   }
+}
+
+Circuit.propTypes = {
+  height: PropTypes.number.isRequired,
 }
 
 export default withStyles(styles)(Circuit);
