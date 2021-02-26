@@ -290,7 +290,7 @@ class LandingPage extends Component {
                     frameworkTags={['django', 'flutter']}
                     backgroundSize='auto 96%'/>
       <SmallProject backgroundImage={dilaBcgImage} dark description={strings.dilaDescription} bcgOpacity={0.1}
-                    frameworkTags={['django', 'paypal']}
+                    frameworkTags={['django', 'bootstrap', 'paypal']}
                     tags={[TagsEnum.web, TagsEnum.backend]}/>
       <Hidden lgDown>
         <Grid item xs={1}/>
