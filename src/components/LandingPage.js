@@ -103,7 +103,7 @@ const styles = theme => ({
   header: {
     display: 'flex',
     flexFlow: 'row nowrap',
-    clipPath: 'polygon(0 0, 100% 0, 100% calc(90% - 40px), 0% 100%)',
+    clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 0.04*100vw), 0% 100%)',
 
   },
   circuit: {
@@ -395,14 +395,14 @@ class LandingPage extends Component {
     return <div className={classes.headerShadowContainer}>
       <div className={classes.header}>
         <div className={classes.circuit}>
-          <Circuit height={440}/>
+          <Circuit height={340}/>
         </div>
         <div className={classes.headerContent}>
-          <Box pb={5}>
+          <Box>
             <Grid container direction='row' justify='center'>
               <Grid item>
                 <Container maxWidth='lg'>
-                  <Box pt={3} mt={5} pb={3}>
+                  <Box mt={5} pb={3}>
                     <Typography variant='h1' className={clsx(classes.title, classes.textCenter)}
                                 onClick={this.openDialog}>{strings.companyName}</Typography>
                   </Box>
@@ -410,7 +410,7 @@ class LandingPage extends Component {
               </Grid>
               <Grid item xs={12}>
                 <Container maxWidth='lg'>
-                  <Box pt={3} pb={5} mb={2}>
+                  <Box pt={3}>
                     <Typography className={clsx(classes.textCenter, classes.companySubtitle)}>
                       {strings.companySubtitle}
                     </Typography>
