@@ -33,14 +33,14 @@ import Circuit from './circuit/Circuit';
 const styles = theme => ({
   ...defaultStyles(theme),
   title: {
-    fontSize: 76,
+    fontSize: 60,
     cursor: 'pointer',
   },
   subTitle: {
-    fontSize: 20,
+    fontSize: 18,
   },
   companySubtitle: {
-    fontSize: 26,
+    fontSize: 22,
   },
   liSpacing: {
     margin: '0 0 22px 0',
@@ -100,11 +100,17 @@ const styles = theme => ({
   headerShadowContainer: {
     filter: 'drop-shadow( 0px 5px 5px rgba(20, 20, 20, .7))',
   },
+  footerShadowContainer: {
+    filter: 'drop-shadow( 0px -5px 5px rgba(20, 20, 20, .7))',
+  },
   header: {
     display: 'flex',
     flexFlow: 'row nowrap',
-    clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 0.04*100vw), 0% 100%)',
-
+    clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 0.03*100vw - 10px), 0% 100%)',
+  },
+  footer: {
+    backgroundColor: bgColor,
+    clipPath: 'polygon(0 calc(0.03*100vw + 10px), 100% 0, 100% 100%, 0% 100%)',
   },
   circuit: {
     boxSizing: 'border-box',
@@ -190,38 +196,38 @@ class LandingPage extends Component {
     </Grid>;
   };
 
-  getMembers = () => {
-    return <Container maxWidth='lg'>
-      <Box py={5} mt={4} mb={4}>
-        <Grid container direction='row' justify='center' spacing={3}>
-          {this.getMember('Matej Marinko', 'matej.marinko@404.si', 'matejm', strings.matejDescription)}
-          {this.getMember('Vid Drobnič', 'vid.drobnic@404.si', 'dzinvision', strings.vidDescription)}
-          {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@404.si', 'zigapk', strings.zigaDescription)}
-        </Grid>
-      </Box>
-    </Container>;
-  };
-
-  getTopShadow = () => {
-    const {classes} = this.props;
-    return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
-                fill='white'
-                className={classes.topBorder}>
-      <polygon points="0,0 100,0 100,25 0,100" fill='green'/>
-    </svg>;
-  };
-
-  getBottomShadow = () => {
-    const {classes} = this.props;
-    return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
-                fill='transparent'
-                className={classes.bottomBorder}>
-      <polygon points="0,100 100,100 100,0 0,75" fill={bgColor}/>
-    </svg>;
-  };
-
   openExternalUrl = url => {
     if (url != null) window.open(url, '_blank');
+  };
+
+  getFooter = () => {
+    const {classes} = this.props;
+
+    return <div className={classes.footerShadowContainer}>
+      <div className={clsx(classes.w100, classes.footer)}>
+        <Container maxWidth='lg'>
+          <Box py={5}>
+            <Box pt={5}>
+              <Box mt={5} pt={5}>
+                <Grid container direction='row' justify='center' spacing={3}>
+                  {this.getMember('Matej Marinko', 'matej.marinko@404.si', 'matejm', strings.matejDescription)}
+                  {this.getMember('Vid Drobnič', 'vid.drobnic@404.si', 'dzinvision', strings.vidDescription)}
+                  {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@404.si', 'zigapk', strings.zigaDescription)}
+                  <Grid item xs={12}/>
+                  <Grid item xs={12}>
+                    <Box py={5} my={5}>
+                      <div className={clsx(classes.subTitle, classes.textCenter)}>
+                        {strings.contact}
+                      </div>
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Box>
+          </Box>
+        </Container>
+      </div>
+    </div>;
   };
 
   getProject = (title, text, image, url, tags, frameworkTags, dark) => {
@@ -371,23 +377,8 @@ class LandingPage extends Component {
         <Grid item xs={12}>
           <Box pt={4}/>
         </Grid>
-
-        <Grid item xs={12}>
-          {this.getBottomShadow()}
-        </Grid>
       </Grid>
     </div>;
-  };
-
-  getContact = () => {
-    const {classes} = this.props;
-    return <Container maxWidth='lg'>
-      <Box py={5} my={5}>
-        <div className={clsx(classes.subTitle, classes.textCenter)}>
-          {strings.contact}
-        </div>
-      </Box>
-    </Container>;
   };
 
   getHeader = () => {
@@ -395,14 +386,14 @@ class LandingPage extends Component {
     return <div className={classes.headerShadowContainer}>
       <div className={classes.header}>
         <div className={classes.circuit}>
-          <Circuit height={340}/>
+          <Circuit height={320}/>
         </div>
         <div className={classes.headerContent}>
           <Box>
             <Grid container direction='row' justify='center'>
               <Grid item>
                 <Container maxWidth='lg'>
-                  <Box mt={5} pb={3}>
+                  <Box pt={2} mt={5} pb={1}>
                     <Typography variant='h1' className={clsx(classes.title, classes.textCenter)}
                                 onClick={this.openDialog}>{strings.companyName}</Typography>
                   </Box>
@@ -410,16 +401,13 @@ class LandingPage extends Component {
               </Grid>
               <Grid item xs={12}>
                 <Container maxWidth='lg'>
-                  <Box pt={3}>
+                  <Box pt={2}>
                     <Typography className={clsx(classes.textCenter, classes.companySubtitle)}>
                       {strings.companySubtitle}
                     </Typography>
                   </Box>
                 </Container>
               </Grid>
-              {/*<Grid item xs={12} style={{backgroundColor: 'white'}}>*/}
-              {/*{this.getTopShadow()}*/}
-              {/*</Grid>*/}
             </Grid>
           </Box>
         </div>
@@ -438,13 +426,7 @@ class LandingPage extends Component {
         {this.getProjects()}
       </Grid>
       <Grid item xs={12}>
-        {this.getMembers()}
-      </Grid>
-      <Grid item xs={12}>
-        {this.getContact()}
-      </Grid>
-      <Grid item xs={12}>
-        <Box pb={5} mb={5}/>
+        {this.getFooter()}
       </Grid>
       {this.getDialog()}
     </Grid>;
