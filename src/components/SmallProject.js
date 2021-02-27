@@ -43,8 +43,25 @@ const styles = theme => ({
     height: '100%',
     borderRadius: 0,
   },
-  description: {
+  descriptionDark: {
+    color: 'white',
     textAlign: 'center',
+    '& span': {
+      color: grey[700],
+      '& a': {
+        color: grey[700],
+      }
+    }
+  },
+  descriptionLight: {
+    color: grey[600],
+    textAlign: 'center',
+    '& span': {
+      color: grey[400],
+      '& a': {
+        color: grey[400],
+      }
+    }
   },
 });
 
@@ -111,7 +128,7 @@ class SmallProject extends Component {
 
           <Grid item xs={12}>
             <Box px={3} pb={3} pt={2}>
-              <Typography className={classes.description} style={{color: dark ? 'white' : grey[600]}}>
+              <Typography className={dark ? classes.descriptionDark : classes.descriptionLight}>
                 {description}
               </Typography>
             </Box>
