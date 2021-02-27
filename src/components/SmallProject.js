@@ -8,9 +8,8 @@ import {
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { bgColor } from '../util/theme';
-import { blue, grey } from '@material-ui/core/colors';
+import { grey } from '@material-ui/core/colors';
 import Tags from './Tags';
-import Circuit from './circuit/Circuit';
 
 const styles = theme => ({
   ...defaultStyles(theme),

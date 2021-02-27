@@ -352,9 +352,6 @@ class LandingPage extends Component {
                     logoGridWidth={4}
                     bcgOpacity={0.6}
                     tags={[TagsEnum.web]}/>
-
-      {/* TODO: this website */}
-      {/* TODO: links in new tab */}
     </Fragment>;
   };
 
