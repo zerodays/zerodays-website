@@ -5,6 +5,11 @@
     transform: translate(-50%, 0);
     width: 100vw;
 }
+.circuitLeftTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .path {
     animation: draw 120s infinite;
     animation-timing-function: linear;

@@ -44,20 +44,21 @@ const strings = new LocalizedStrings({
     gremDescription: <Fragment>
       Since 2017, we have established a full online ticket and event management platform through a productive
       collaboration with the Grem! team. We remain to be their go-to development team. Our joint development
-      includes <b>mobile app</b> for iOS and Android, <b>website</b>, <b>backend platform maintenance</b> and <b>server
-      hosting</b>.
+      includes mobile app for <a href="https://apps.apple.com/si/app/grem/id1276023527">iOS</a> and <a
+      href="https://play.google.com/store/apps/details?id=com.partyconapp.partycon">Android</a>, <a
+      href="https://grem.app/">website</a>, backend platform maintenance and server hosting.
     </Fragment>,
 
     // spectre
     spectreTitle: '3D printer for pharmaceuticals',
     spectreDescription: <Fragment>
       A pharmaceutical 3D printer controller software and user interface was built from the scratch in association
-      with Spectre Laboratories. It allows for rapid prototyping of medical tablets for drug production and
+      with <a href="https://spectrelabs.si/">Spectre Laboratories</a>. It allows for rapid prototyping of medical
+      tablets for drug production and
       development.
     </Fragment>,
 
     // sistem 404
-    // TODO: prijave
     sistem404Title: 'Company management web app',
     sistem404Description: <Fragment>
       To enable flawless project oversight, booking of space, machines and management of other resources, we have
@@ -87,9 +88,8 @@ const strings = new LocalizedStrings({
     // skoz
     make3dTitle: 'Make3D',
     make3dDescription: <Fragment>
-      Make3D was developed to connect 3D printing specialists with customers in a flawless and cost efficient
-      manner. It
-      allows for seamless testing and production of ideas and prototypes for various creators, innovators and
+      Make3D was developed for <a href="https://404.si">Zavod 404</a> in order to connect 3D printing specialists with customers in a flawless and cost efficient
+      manner. It allows for seamless testing and production of ideas and prototypes for various creators, innovators and
       tinkerers.
     </Fragment>,
 

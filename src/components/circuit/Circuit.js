@@ -15,41 +15,37 @@ const styles = theme => ({
     width: '100%',
     height: '100%',
     overflow: 'hidden',
-    backgroundColor: bgColor,
   },
 });
 
 /*
 * Copied and modified from https://dribbble.com/shots/3433250-Circuit-Animation-SVG-CSS
 * */
-const stopColor = grey[800];
-const startColor = blue[900];
-const componentsColor = '#222222';
-// const wiresColor = 'red';
-const wiresColor = '#222222';
 
 class Circuit extends Component {
-  resize = () => this.forceUpdate()
+  resize = () => this.forceUpdate();
 
   componentDidMount() {
-    window.addEventListener('resize', this.resize)
+    window.addEventListener('resize', this.resize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.resize)
+    window.removeEventListener('resize', this.resize);
   }
 
   render() {
-    const {classes, height} = this.props;
-    const displayWidth = window.innerWidth
+    const {classes, height, leftTop, stopColor, startColor, componentsColor, wiresColor, backgroundColor} = this.props;
+    const displayWidth = window.innerWidth;
 
-    return <div className={classes.root} style={{height: height}}>
-      <svg className="circuit" width="100%" version="1.1" viewBox={`0 0 ${Math.min(displayWidth, 1700)} 1600`}
+    return <div className={classes.root}
+                style={{height: height, backgroundColor: backgroundColor == null ? bgColor : backgroundColor}}>
+      <svg className={leftTop ? 'circuitLeftTop' : 'circuit'} width="100%" version="1.1"
+           viewBox={`0 0 ${Math.min(displayWidth, 1700)} 1600`}
            xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor={stopColor}/>
-            <stop offset="100%" stopColor={startColor}/>
+            <stop offset="0%" stopColor={stopColor == null ? grey[800] : stopColor}/>
+            <stop offset="100%" stopColor={startColor == null ? blue[900] : startColor}/>
           </linearGradient>
         </defs>
         <g id="module-01" transform="translate(-1.000000, 0.000000)" className="path path-01" stroke="url(#linear)"
@@ -587,7 +583,8 @@ class Circuit extends Component {
         </g>*/}
 
 
-        <g id="static" transform="translate(48.000000, 56.000000)" stroke={componentsColor} strokeWidth="2" fill="none"
+        <g id="static" transform="translate(48.000000, 56.000000)"
+           stroke={componentsColor == null ? '#222222' : componentsColor} strokeWidth="2" fill="none"
            fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
           <rect x="132" y="0" width="48" height="48" rx="4"></rect>
           <circle cx="172" cy="200" r="4"></circle>
@@ -899,7 +896,8 @@ class Circuit extends Component {
           <circle cx="1811" cy="1280" r="4"></circle>
         </g>
 
-        <g id="paths-bg" transform="translate(0.000000, 0.000000)" stroke={wiresColor} strokeWidth="2" fill="none"
+        <g id="paths-bg" transform="translate(0.000000, 0.000000)" stroke={wiresColor == null ? '#222222' : wiresColor}
+           strokeWidth="2" fill="none"
            fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
           <g id="C23" transform="translate(176.000000, 0.000000)">
             <polyline id="path" points="52 92 84 92 116 60 116 0"></polyline>
@@ -1441,7 +1439,13 @@ class Circuit extends Component {
 }
 
 Circuit.propTypes = {
+  stopColor: PropTypes.string,
+  startColor: PropTypes.string,
+  componentsColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  wiresColor: PropTypes.string,
   height: PropTypes.number.isRequired,
-}
+  leftTop: PropTypes.bool,
+};
 
 export default withStyles(styles)(Circuit);

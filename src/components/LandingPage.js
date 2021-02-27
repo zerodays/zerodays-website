@@ -16,6 +16,8 @@ import olloBcgImage from '../res/img/projects/ollo.jpg';
 import olloLogo from '../res/img/projects/ollo_logo.png';
 import Img404 from '../res/img/projects/404.png';
 import dilaBcgImage from '../res/img/projects/dilaboards.jpg';
+import zerodaysLogo from '../res/img/zerodays_logo_transparent.svg';
+import zerodaysBcg from '../res/img/projects/zerodays.jpg';
 import skozBcgImage from '../res/img/projects/skoz.svg';
 import wool2loopImage from '../res/img/projects/wool2loop.jpeg';
 import otoBcgImage from '../res/img/projects/oto.png';
@@ -159,40 +161,42 @@ class LandingPage extends Component {
   getMember = (name, email, ghUsername, description) => {
     const {classes} = this.props;
     return <Grid item xs={12} md={6} lg={4}>
-      <Grid container direction='row' justify='center'>
-        <Grid item>
-          <img src={`https://github.com/${ghUsername}.png`} alt='profile' className={classes.profileImage}/>
-        </Grid>
+      <Box pb={5}>
+        <Grid container direction='row' justify='center'>
+          <Grid item>
+            <img src={`https://github.com/${ghUsername}.png`} alt='profile' className={classes.profileImage}/>
+          </Grid>
 
-        <Grid item xs={12}>
-          <Box py={2}>
-            <Typography className={clsx(classes.subTitle, classes.textCenter)}>
-              {name}
+          <Grid item xs={12}>
+            <Box py={2}>
+              <Typography className={clsx(classes.subTitle, classes.textCenter)}>
+                {name}
+              </Typography>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Box pb={1}>
+              <div className={clsx(classes.profileDescription)}>
+                {description}
+              </div>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography className={classes.textCenter}>
+              <a href={`https://github.com/${ghUsername}`} target='_blank' className={classes.linkWhite}
+                 rel='noopener noreferrer'>github.com/{ghUsername}</a>
             </Typography>
-          </Box>
-        </Grid>
+          </Grid>
 
-        <Grid item xs={12}>
-          <Box pb={1}>
-            <div className={clsx(classes.profileDescription)}>
-              {description}
-            </div>
-          </Box>
+          <Grid item xs={12}>
+            <Typography className={classes.textCenter}>
+              <a href={`mailto:${email}`} className={classes.linkWhite}>{email}</a>
+            </Typography>
+          </Grid>
         </Grid>
-
-        <Grid item xs={12}>
-          <Typography className={classes.textCenter}>
-            <a href={`https://github.com/${ghUsername}`} target='_blank' className={classes.linkWhite}
-               rel='noopener noreferrer'>github.com/{ghUsername}</a>
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Typography className={classes.textCenter}>
-            <a href={`mailto:${email}`} className={classes.linkWhite}>{email}</a>
-          </Typography>
-        </Grid>
-      </Grid>
+      </Box>
     </Grid>;
   };
 
@@ -207,22 +211,22 @@ class LandingPage extends Component {
       <div className={clsx(classes.w100, classes.footer)}>
         <Container maxWidth='lg'>
           <Box py={5}>
-            <Box pt={5}>
-              <Box mt={5} pt={5}>
-                <Grid container direction='row' justify='center' spacing={3}>
-                  {this.getMember('Matej Marinko', 'matej.marinko@404.si', 'matejm', strings.matejDescription)}
-                  {this.getMember('Vid Drobnič', 'vid.drobnic@404.si', 'dzinvision', strings.vidDescription)}
-                  {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@404.si', 'zigapk', strings.zigaDescription)}
-                  <Grid item xs={12}/>
-                  <Grid item xs={12}>
-                    <Box py={5} my={5}>
-                      <div className={clsx(classes.subTitle, classes.textCenter)}>
-                        {strings.contact}
-                      </div>
-                    </Box>
-                  </Grid>
+            <Box mt={5} pt={5}>
+              <Grid container direction='row' justify='center' spacing={3}>
+                <Hidden smDown><Grid item xs={12}/></Hidden>
+                {this.getMember('Matej Marinko', 'matej.marinko@404.si', 'matejm', strings.matejDescription)}
+                <Hidden lgUp><Grid item xs={12}/></Hidden>
+                {this.getMember('Vid Drobnič', 'vid.drobnic@404.si', 'dzinvision', strings.vidDescription)}
+                <Hidden lgUp><Grid item xs={12}/></Hidden>
+                {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@404.si', 'zigapk', strings.zigaDescription)}
+                <Grid item xs={12}>
+                  <Box pb={5} my={5}>
+                    <div className={clsx(classes.subTitle, classes.textCenter)}>
+                      {strings.contact}
+                    </div>
+                  </Box>
                 </Grid>
-              </Box>
+              </Grid>
             </Box>
           </Box>
         </Container>
@@ -230,13 +234,11 @@ class LandingPage extends Component {
     </div>;
   };
 
-  getProject = (title, text, image, url, tags, frameworkTags, dark) => {
+  getProject = (title, text, image, tags, frameworkTags, dark) => {
     const {classes} = this.props;
 
     return <Grid item xs={12} lg={6} xl={5} className={dark ? classes.textWhite : classes.textBlack}>
-      <Card className={clsx(classes.project, dark ? classes.darkCard : classes.lightCard)}
-            style={{cursor: url != null ? 'pointer' : 'auto'}}
-            onClick={() => this.openExternalUrl(url)} elevation={15}>
+      <Card className={clsx(classes.project, dark ? classes.darkCard : classes.lightCard)} elevation={15}>
         <Grid container direction='row' justify='center' className={classes.h100}>
           {
             image
@@ -262,8 +264,6 @@ class LandingPage extends Component {
               </Typography>
             </Box>
           </Grid>
-
-          {/* TODO: padding */}
 
 
           <Grid item xs={12}>
@@ -294,13 +294,12 @@ class LandingPage extends Component {
   getProjectsList = () => {
     return <Fragment>
       {this.getProject(strings.spectreTitle, strings.spectreDescription,
-        <Spectre/>, 'http://spectrelabs.si/', [TagsEnum.robotics, TagsEnum.sys_admin], ['python', 'react'], true)}
-      {this.getProject(strings.gremTitle, strings.gremDescription, this.getImageComponent(ImgGrem), 'https://grem.app', [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login', 'firebase'])}
+        <Spectre/>, [TagsEnum.robotics, TagsEnum.sys_admin], ['python', 'react'], true)}
+      {this.getProject(strings.gremTitle, strings.gremDescription, this.getImageComponent(ImgGrem), [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login', 'firebase'])}
 
-      {this.getProject(strings.sistem404Title, strings.sistem404Description, this.getImageComponent(Img404), 'https://404.si/', [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'minimax', 'google login', 'google calendar'])}
-      {/* TODO: double link opens on click on href element */}
+      {this.getProject(strings.sistem404Title, strings.sistem404Description, this.getImageComponent(Img404), [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'minimax', 'google login', 'google calendar'])}
       {this.getProject(null, strings.make3dDescription,
-        <Make3d/>, 'https://make3d.io', [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'firebase', 'here maps'], true)}
+        <Make3d/>, [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'firebase', 'here maps'], true)}
 
       <Hidden lgDown>
         <Grid item xs={12}/>
@@ -313,7 +312,7 @@ class LandingPage extends Component {
       </Hidden>
       <SmallProject backgroundImage={olloBcgImage} logoImage={olloLogo} dark
                     description={strings.olloDescription} tags={[TagsEnum.backend]}
-                    bcgOpacity={0.2}
+                    bcgOpacity={0.1}
                     frameworkTags={['go', 'shopify', 'minimax']}
 
       />
@@ -344,6 +343,15 @@ class LandingPage extends Component {
       <SmallProject logoImage={skozBcgImage} logoGridWidth={6} description={strings.skozDescription}
                     frameworkTags={['django', 'bootstrap']}
                     bcgOpacity={0} tags={[TagsEnum.web, TagsEnum.backend]}/>
+      <SmallProject description={strings.thisWebsite}
+                    bottomPadding
+                    dark
+                    logoImage={zerodaysLogo}
+                    backgroundImage={zerodaysBcg}
+                    frameworkTags={['react']}
+                    logoGridWidth={4}
+                    bcgOpacity={0.6}
+                    tags={[TagsEnum.web]}/>
 
       {/* TODO: this website */}
       {/* TODO: links in new tab */}

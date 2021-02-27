@@ -8,8 +8,9 @@ import {
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { bgColor } from '../util/theme';
-import { grey } from '@material-ui/core/colors';
+import { blue, grey } from '@material-ui/core/colors';
 import Tags from './Tags';
+import Circuit from './circuit/Circuit';
 
 const styles = theme => ({
   ...defaultStyles(theme),
@@ -60,7 +61,16 @@ class SmallProject extends Component {
   };
 
   getImageComponent = () => {
-    const {classes, dark, backgroundImage, logoImage, bcgOpacity, logoGridWidth, backgroundSize} = this.props;
+    const {
+      classes,
+      dark,
+      backgroundImage,
+      logoImage,
+      bcgOpacity,
+      logoGridWidth,
+      backgroundSize,
+      bottomPadding,
+    } = this.props;
     return <div className={classes.imageContainer}>
       {
         backgroundImage ?
@@ -76,7 +86,9 @@ class SmallProject extends Component {
           <Grid item>
             <Grid container direction='row' justify='center'>
               <Grid item xs={logoGridWidth ? logoGridWidth : 3}>
-                <img src={logoImage} alt='make3d logo' className={classes.w100}/>
+                <Box pb={bottomPadding ? 5 : 0}>
+                  <img src={logoImage} alt='project logo' className={classes.w100}/>
+                </Box>
               </Grid>
             </Grid>
           </Grid>
@@ -106,8 +118,6 @@ class SmallProject extends Component {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            {/*<Tags tags={tags} dark={dark}/>*/}
-            {/*<Tags tags={frameworkTags} dark={dark} textOnly/>*/}
 
             <Grid container direction='column' justify='flex-end' className={classes.h100}>
               <Grid item>
@@ -136,6 +146,7 @@ SmallProject.propTypes = {
   backgroundSize: PropTypes.string,
   tags: PropTypes.array.isRequired,
   frameworkTags: PropTypes.array.isRequired,
+  bottomPadding: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(SmallProject);
