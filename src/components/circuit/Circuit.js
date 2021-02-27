@@ -25,13 +25,26 @@ const styles = theme => ({
 const stopColor = grey[800];
 const startColor = blue[900];
 const componentsColor = '#222222';
+// const wiresColor = 'red';
 const wiresColor = '#222222';
 
 class Circuit extends Component {
+  resize = () => this.forceUpdate()
+
+  componentDidMount() {
+    window.addEventListener('resize', this.resize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resize)
+  }
+
   render() {
     const {classes, height} = this.props;
-    return <div className={classes.root}>
-      <svg className=".circuit" width="100%" height={height} version="1.1"
+    const displayWidth = window.innerWidth
+
+    return <div className={classes.root} style={{height: height}}>
+      <svg className="circuit" width="100%" version="1.1" viewBox={`0 0 ${Math.min(displayWidth, 1700)} 1600`}
            xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -103,14 +116,14 @@ class Circuit extends Component {
             <polyline
               points="0 33 79.9895845 32.9895845 128 81 128 197 144 213 164 213 216 265 216 289 204 301.285714 204 333.571429 231.428571 361 252 361"></polyline>
           </g>
-          <g id="C20" transform="translate(1.000000, 622.000000)">
+          {/*<g id="C20" transform="translate(1.000000, 622.000000)">
             <polyline points="0 21 88 21 101 8 101 1"></polyline>
             <polyline points="0 29 93 29 117.020824 4.9791757 117.020824 0.99994551"></polyline>
             <polyline points="0 37 96 37 133 0"></polyline>
             <polyline points="0 53 4 53 12 44.9377423 100 45 135 10 143 10 152 1"></polyline>
             <polyline points="0 61 9 61 17 53 104 53 140 17 164 17"></polyline>
-          </g>
-          <g id="C18" transform="translate(1.000000, 771.000000)">
+          </g>*/}
+          {/*<g id="C18" transform="translate(1.000000, 771.000000)">
             <polyline id="Path-4-Copy-466"
                       points="0 137 60 137 100 97 100 29 100 20 119.026298 0.97370241 128.058497 0.97370241"></polyline>
             <polyline id="Path-4-Copy-467"
@@ -119,7 +132,7 @@ class Circuit extends Component {
             <polyline id="Path-4-Copy-469" points="0 113 42 113 47 113 75 85 75 43 65 33 65 29 65 5"></polyline>
             <polyline id="Path-4-Copy-470" points="0 105 42 105 44 105 68 81 68 49 52 33 52 29 52 19"></polyline>
             <polyline id="Path-4-Copy-165" points="0 145 67 145 76 136"></polyline>
-          </g>
+          </g>*/}
           <g id="C17" transform="translate(217.000000, 519.000000)">
             <path d="M188,201 L203,201"></path>
             <polyline points="23 48 28 53 28 73 16 85 16 117 64 165 64 181 100 217 132 217"></polyline>
@@ -230,7 +243,7 @@ class Circuit extends Component {
             <polyline points="44.0311289 252.000061 44.0311289 244.031129 40 240 40 108 40 104"></polyline>
             <polyline points="48 108 48 104 48 184 56 192 60 192 64 192"></polyline>
           </g>
-          <g id="C10" transform="translate(0.000000, 675.000000)">
+          {/*<g id="C10" transform="translate(0.000000, 675.000000)">
             <polyline points="29 153 29 181 49 201 65 201"></polyline>
             <polyline
               points="121 201 153 201 169 217 201 217 243 217 254 217 286 185 286 138 277 129 277 125 277 115"></polyline>
@@ -287,7 +300,7 @@ class Circuit extends Component {
               points="101 329 101 313 125.020824 288.979176 173.000005 288.979176 189.989593 271.989587 189.989593 243.999998"></polyline>
             <polyline
               points="93 329 93 309 121.017851 280.982149 169.010795 280.982149 177.996472 271.996471 177.996472 192.993715 149.001378 163.998622 149.001378 41 108.988174 0.986795729 100.999989 0.986795729"></polyline>
-          </g>
+          </g>*/}
         </g>
         <g id="module-03" transform="translate(1024.000000, 164.000000)" className="path path-03" stroke="url(#linear)"
            strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
@@ -334,7 +347,7 @@ class Circuit extends Component {
             <polyline points="167 39 167 32 176 23 203 23 219 39 290 39 299 48 311 48"></polyline>
             <polyline points="183 144 183 136 179 132 179 111 167 99 167 88"></polyline>
           </g>
-          <g id="C8" transform="translate(237.000000, 1052.000000)">
+          {/*<g id="C8" transform="translate(237.000000, 1052.000000)">
             <path d="M135,39 L135,27"></path>
             <path d="M151,39 L151,27"></path>
             <path d="M143,39 L143,27"></path>
@@ -356,8 +369,8 @@ class Circuit extends Component {
             <polyline points="171 155 171 116 159 104 159 88"></polyline>
             <polyline points="167 39 167 32 176 23 203 23 219 39 290 39 299 48 311 48"></polyline>
             <polyline points="183 144 183 136 179 132 179 111 167 99 167 88"></polyline>
-          </g>
-          <g id="C7" transform="translate(144.000000, 558.000000)">
+          </g>*/}
+          {/*<g id="C7" transform="translate(144.000000, 558.000000)">
             <polyline points="53 162 61 162 68 154 68 114 52 98 52 78 52 74 69 57 69 24 85 8 85 0"></polyline>
             <path d="M12,154 L12,144"></path>
             <polyline points="0 245 0 230 12 218 12 202"></polyline>
@@ -367,7 +380,7 @@ class Circuit extends Component {
             <polyline points="44 154 44 145 53 136 53 128"></polyline>
             <polyline points="65 245 65 229 44 209 44 202"></polyline>
             <polyline points="36 153 36 78 36 65 52 49"></polyline>
-          </g>
+          </g>*/}
           <g id="C6" transform="translate(491.000000, 63.000000)">
             <polyline
               points="59 329 59 295 86.5045451 267.495455 89 265 89 194 86 191 61 166 61 105 65 101 65 96"></polyline>
@@ -388,7 +401,7 @@ class Circuit extends Component {
             <polyline
               points="93 329 93 309 121.017851 280.982149 169.010795 280.982149 177.996472 271.996471 177.996472 192.993715 149.001378 163.998622 149.001378 41 108.988174 0.986795729 100.999989 0.986795729"></polyline>
           </g>
-          <g id="C3" transform="translate(0.000000, 740.000000)">
+          {/*<g id="C3" transform="translate(0.000000, 740.000000)">
             <polyline
               points="56 112 203 112 236 145 236 236 308 308 380 308 400 288 440 288 472 320 524 320 528 316 528 308"></polyline>
             <polyline
@@ -403,9 +416,9 @@ class Circuit extends Component {
             <path d="M36,132 L36,124"></path>
             <polyline points="0 4 0 0 0 80 8 88 12 88 16 88"></polyline>
             <polyline points="64 136 60 136 52 128 52 124"></polyline>
-          </g>
+          </g>*/}
         </g>
-        <g id="module-04" transform="translate(1532.000000, 115.000000)" className="path path-04" stroke="url(#linear)"
+        {/*<g id="module-04" transform="translate(1532.000000, 115.000000)" className="path path-04" stroke="url(#linear)"
            strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C19">
@@ -501,8 +514,8 @@ class Circuit extends Component {
             <polyline points="416 605 391 605 364 578 364 414 356 406 356 373"></polyline>
             <polyline points="364 325 364 241 384 221 384 201"></polyline>
           </g>
-        </g>
-        <g id="module-05" transform="translate(1908.000000, 0.000000)" className="path path-05" stroke="url(#linear)"
+        </g>*/}
+        {/*<g id="module-05" transform="translate(1908.000000, 0.000000)" className="path path-05" stroke="url(#linear)"
            strokeWidth="4" fillRule="evenodd" strokeLinecap="butt" strokeLinejoin="round" fill="none"
            strokeOpacity="1" strokeDasharray="8,960,24,960,16,400" strokeDashoffset="6400">
           <g id="C13">
@@ -571,7 +584,7 @@ class Circuit extends Component {
             <path d="M108.666667,289.029405 L108.666667,221"></path>
             <polyline points="120.996096 301.000001 120.996096 289.003908 117 285.007812 117 221"></polyline>
           </g>
-        </g>
+        </g>*/}
 
 
         <g id="static" transform="translate(48.000000, 56.000000)" stroke={componentsColor} strokeWidth="2" fill="none"
@@ -607,27 +620,27 @@ class Circuit extends Component {
           <circle cx="69" cy="563" r="4"></circle>
           <circle cx="107" cy="563" r="4"></circle>
           <circle cx="88" cy="563" r="4"></circle>
-          <rect x="1804" y="384" width="48" height="48" rx="4"></rect>
-          <circle cx="1868" cy="256" r="4"></circle>
-          <circle cx="1856" cy="267" r="4"></circle>
-          <circle cx="2112" cy="464" r="4"></circle>
-          <circle cx="2027" cy="404" r="4"></circle>
-          <circle cx="1688" cy="67" r="4"></circle>
-          <circle cx="1700" cy="55" r="4"></circle>
-          <circle cx="1712" cy="67" r="4"></circle>
-          <circle cx="1724" cy="55" r="4"></circle>
-          <circle cx="1935" cy="388" r="4"></circle>
-          <circle cx="1939" cy="368" r="4"></circle>
-          <circle cx="1940" cy="352" r="4"></circle>
-          <circle cx="1892" cy="384" r="4"></circle>
-          <circle cx="1788" cy="468" r="4"></circle>
-          <circle cx="1796" cy="336" r="4"></circle>
-          <circle cx="1776" cy="372" r="4"></circle>
-          <circle cx="1824" cy="496" r="4"></circle>
-          <circle cx="1811" cy="480" r="4"></circle>
-          <circle cx="1480" cy="63" r="4"></circle>
-          <circle cx="1480" cy="95" r="4"></circle>
-          <circle cx="1480" cy="111" r="4"></circle>
+          {/*<rect x="1804" y="384" width="48" height="48" rx="4"></rect>*/}
+          {/*<circle cx="1868" cy="256" r="4"></circle>*/}
+          {/*<circle cx="1856" cy="267" r="4"></circle>*/}
+          {/*<circle cx="2112" cy="464" r="4"></circle>*/}
+          {/*<circle cx="2027" cy="404" r="4"></circle>*/}
+          {/*<circle cx="1688" cy="67" r="4"></circle>*/}
+          {/*<circle cx="1700" cy="55" r="4"></circle>*/}
+          {/*<circle cx="1712" cy="67" r="4"></circle>*/}
+          {/*<circle cx="1724" cy="55" r="4"></circle>*/}
+          {/*<circle cx="1935" cy="388" r="4"></circle>*/}
+          {/*<circle cx="1939" cy="368" r="4"></circle>*/}
+          {/*<circle cx="1940" cy="352" r="4"></circle>*/}
+          {/*<circle cx="1892" cy="384" r="4"></circle>*/}
+          {/*<circle cx="1788" cy="468" r="4"></circle>*/}
+          {/*<circle cx="1796" cy="336" r="4"></circle>*/}
+          {/*<circle cx="1776" cy="372" r="4"></circle>*/}
+          {/*<circle cx="1824" cy="496" r="4"></circle>*/}
+          {/*<circle cx="1811" cy="480" r="4"></circle>*/}
+          {/*<circle cx="1480" cy="63" r="4"></circle>*/}
+          {/*<circle cx="1480" cy="95" r="4"></circle>*/}
+          {/*<circle cx="1480" cy="111" r="4"></circle>*/}
           <circle cx="4" cy="729" r="4"></circle>
           <circle cx="17" cy="716" r="4"></circle>
           <circle cx="56" cy="716" r="4"></circle>
@@ -670,23 +683,23 @@ class Circuit extends Component {
           <circle cx="256" cy="1016" r="4"></circle>
           <circle cx="200" cy="1012" r="4"></circle>
           <circle cx="172" cy="1000" r="4"></circle>
-          <circle cx="1785" cy="635" r="4"></circle>
-          <circle cx="1768" cy="684" r="4"></circle>
-          <rect x="1732" y="800" width="48" height="48" rx="4"></rect>
-          <circle cx="1717" cy="479" r="4"></circle>
-          <circle cx="1733" cy="567" r="4"></circle>
-          <circle cx="1809" cy="676" r="4"></circle>
-          <circle cx="1797" cy="647" r="4"></circle>
-          <circle cx="1828" cy="1028" r="4"></circle>
-          <circle cx="1808" cy="872" r="4"></circle>
-          <circle cx="1864" cy="711" r="4"></circle>
-          <circle cx="1849" cy="711" r="4"></circle>
-          <circle cx="1828" cy="711" r="4"></circle>
-          <circle cx="1816" cy="723" r="4"></circle>
-          <circle cx="1805" cy="731" r="4"></circle>
-          <circle cx="1856" cy="1016" r="4"></circle>
-          <circle cx="1800" cy="1012" r="4"></circle>
-          <circle cx="1772" cy="1000" r="4"></circle>
+          {/*<circle cx="1785" cy="635" r="4"></circle>*/}
+          {/*<circle cx="1768" cy="684" r="4"></circle>*/}
+          {/*<rect x="1732" y="800" width="48" height="48" rx="4"></rect>*/}
+          {/*<circle cx="1717" cy="479" r="4"></circle>*/}
+          {/*<circle cx="1733" cy="567" r="4"></circle>*/}
+          {/*<circle cx="1809" cy="676" r="4"></circle>*/}
+          {/*<circle cx="1797" cy="647" r="4"></circle>*/}
+          {/*<circle cx="1828" cy="1028" r="4"></circle>*/}
+          {/*<circle cx="1808" cy="872" r="4"></circle>*/}
+          {/*<circle cx="1864" cy="711" r="4"></circle>*/}
+          {/*<circle cx="1849" cy="711" r="4"></circle>*/}
+          {/*<circle cx="1828" cy="711" r="4"></circle>*/}
+          {/*<circle cx="1816" cy="723" r="4"></circle>*/}
+          {/*<circle cx="1805" cy="731" r="4"></circle>*/}
+          {/*<circle cx="1856" cy="1016" r="4"></circle>*/}
+          {/*<circle cx="1800" cy="1012" r="4"></circle>*/}
+          {/*<circle cx="1772" cy="1000" r="4"></circle>*/}
           <rect x="484" y="112" width="48" height="48" rx="4"></rect>
           <circle cx="508" cy="308" r="4"></circle>
           <circle cx="524" cy="308" r="4"></circle>
@@ -697,16 +710,16 @@ class Circuit extends Component {
           <circle cx="672" cy="292" r="4"></circle>
           <circle cx="754" cy="111" r="4"></circle>
           <circle cx="256" cy="112" r="4"></circle>
-          <rect x="2084" y="112" width="48" height="48" rx="4"></rect>
-          <circle cx="2108" cy="308" r="4"></circle>
-          <circle cx="2124" cy="308" r="4"></circle>
-          <circle cx="2140" cy="300" r="4"></circle>
-          <circle cx="2156" cy="308" r="4"></circle>
-          <circle cx="2284" cy="279" r="4"></circle>
-          <circle cx="2284" cy="303" r="4"></circle>
-          <circle cx="2272" cy="292" r="4"></circle>
-          <circle cx="2354" cy="111" r="4"></circle>
-          <circle cx="1856" cy="112" r="4"></circle>
+          {/*<rect x="2084" y="112" width="48" height="48" rx="4"></rect>*/}
+          {/*<circle cx="2108" cy="308" r="4"></circle>*/}
+          {/*<circle cx="2124" cy="308" r="4"></circle>*/}
+          {/*<circle cx="2140" cy="300" r="4"></circle>*/}
+          {/*<circle cx="2156" cy="308" r="4"></circle>*/}
+          {/*<circle cx="2284" cy="279" r="4"></circle>*/}
+          {/*<circle cx="2284" cy="303" r="4"></circle>*/}
+          {/*<circle cx="2272" cy="292" r="4"></circle>*/}
+          {/*<circle cx="2354" cy="111" r="4"></circle>*/}
+          {/*<circle cx="1856" cy="112" r="4"></circle>*/}
           <rect x="932" y="0" width="48" height="48" rx="4"></rect>
           <circle cx="972" cy="200" r="4"></circle>
           <circle cx="1000" cy="212" r="4"></circle>
@@ -828,16 +841,16 @@ class Circuit extends Component {
           <circle cx="1593" cy="715" r="4"></circle>
           <circle cx="1588" cy="691" r="4"></circle>
           <circle cx="1633" cy="707" r="4"></circle>
-          <circle cx="1728" cy="684" r="4"></circle>
-          <circle cx="1712" cy="719" r="4"></circle>
-          <circle cx="1708" cy="607" r="4"></circle>
-          <circle cx="1692" cy="603" r="4"></circle>
-          <circle cx="1695" cy="656" r="4"></circle>
+          {/*<circle cx="1728" cy="684" r="4"></circle>*/}
+          {/*<circle cx="1712" cy="719" r="4"></circle>*/}
+          {/*<circle cx="1708" cy="607" r="4"></circle>*/}
+          {/*<circle cx="1692" cy="603" r="4"></circle>*/}
+          {/*<circle cx="1695" cy="656" r="4"></circle>*/}
           <circle cx="1524" cy="784" r="4"></circle>
           <circle cx="1504" cy="784" r="4"></circle>
           <circle cx="1488" cy="784" r="4"></circle>
-          <circle cx="1717" cy="839" r="4"></circle>
-          <circle cx="1677" cy="884" r="4"></circle>
+          {/*<circle cx="1717" cy="839" r="4"></circle>*/}
+          {/*<circle cx="1677" cy="884" r="4"></circle>*/}
           <path
             d="M1516,744.15625 L1516,756.001953 C1516,758.210013 1514.21571,760 1512.00995,760 L1495.99005,760 C1493.78641,760 1492,758.210373 1492,755.995361 L1492,744.130127"></path>
           <rect x="992" y="932" width="40" height="40" rx="4"></rect>
@@ -952,13 +965,13 @@ class Circuit extends Component {
             <polyline id="path"
                       points="0 33 79.9895845 32.9895845 128 81 128 197 144 213 164 213 216 265 216 289 204 301.285714 204 333.571429 231.428571 361 252 361"></polyline>
           </g>
-          <g id="C20" transform="translate(0.000000, 622.000000)">
+          {/*<g id="C20" transform="translate(0.000000, 622.000000)">
             <polyline id="path" points="0 21 88 21 101 8 101 1"></polyline>
             <polyline id="path" points="0 29 93 29 117.020824 4.9791757 117.020824 0.99994551"></polyline>
             <polyline id="path" points="0 37 96 37 133 0"></polyline>
             <polyline id="path" points="0 53 4 53 12 44.9377423 100 45 135 10 143 10 152 1"></polyline>
             <polyline id="path" points="0 61 9 61 17 53 104 53 140 17 164 17"></polyline>
-          </g>
+          </g>*/}
           <g id="C19" transform="translate(1532.000000, 115.000000)">
             <polyline id="path"
                       points="368 361 428 361 444.03122 344.96878 492 344.96878 539.000005 344.96878"></polyline>
@@ -990,7 +1003,7 @@ class Circuit extends Component {
             <polyline id="path"
                       points="0 36 17 36 20 33 68 33 147.989584 32.9895845 196 81 196 197 212 213 232 213 284 265 284 289 272 301.285714 272 333.571429 299.428571 361 320 361"></polyline>
           </g>
-          <g id="C18" transform="translate(0.000000, 771.000000)">
+          {/*<g id="C18" transform="translate(0.000000, 771.000000)">
             <polyline id="Path-4-Copy-466"
                       points="0 137 60 137 100 97 100 29 100 20 119.026298 0.97370241 128.058497 0.97370241"></polyline>
             <polyline id="Path-4-Copy-467"
@@ -999,7 +1012,7 @@ class Circuit extends Component {
             <polyline id="Path-4-Copy-469" points="0 113 42 113 47 113 75 85 75 43 65 33 65 29 65 5"></polyline>
             <polyline id="Path-4-Copy-470" points="0 105 42 105 44 105 68 81 68 49 52 33 52 29 52 19"></polyline>
             <polyline id="Path-4-Copy-165" points="0 145 67 145 76 136"></polyline>
-          </g>
+          </g>*/}
           <g id="C17" transform="translate(216.000000, 519.000000)">
             <path d="M188,201 L203,201" id="path"></path>
             <polyline id="path" points="23 48 28 53 28 73 16 85 16 117 64 165 64 181 100 217 132 217"></polyline>
@@ -1247,7 +1260,7 @@ class Circuit extends Component {
             <polyline id="path" points="167 39 167 32 176 23 203 23 219 39 290 39 299 48 311 48"></polyline>
             <polyline id="path" points="183 144 183 136 179 132 179 111 167 99 167 88"></polyline>
           </g>
-          <g id="C8" transform="translate(1261.000000, 1216.000000)">
+          {/*<g id="C8" transform="translate(1261.000000, 1216.000000)">
             <path d="M135,39 L135,27" id="path"></path>
             <path d="M151,39 L151,27" id="path"></path>
             <path d="M143,39 L143,27" id="path"></path>
@@ -1270,8 +1283,8 @@ class Circuit extends Component {
             <polyline id="path" points="171 155 171 116 159 104 159 88"></polyline>
             <polyline id="path" points="167 39 167 32 176 23 203 23 219 39 290 39 299 48 311 48"></polyline>
             <polyline id="path" points="183 144 183 136 179 132 179 111 167 99 167 88"></polyline>
-          </g>
-          <g id="C7" transform="translate(1168.000000, 722.000000)">
+          </g>*/}
+          {/*<g id="C7" transform="translate(1168.000000, 722.000000)">
             <polyline id="path" points="53 162 61 162 68 154 68 114 52 98 52 78 52 74 69 57 69 24 85 8 85 0"></polyline>
             <path d="M12,154 L12,144" id="path"></path>
             <polyline id="path" points="0 245 0 230 12 218 12 202"></polyline>
@@ -1281,7 +1294,7 @@ class Circuit extends Component {
             <polyline id="path" points="44 154 44 145 53 136 53 128"></polyline>
             <polyline id="path" points="65 245 65 229 44 209 44 202"></polyline>
             <polyline id="path" points="36 153 36 78 36 65 52 49"></polyline>
-          </g>
+          </g>*/}
           <g id="C6" transform="translate(1515.000000, 227.000000)">
             <polyline id="path"
                       points="59 329 59 295 86.5045451 267.495455 89 265 89 194 86 191 61 166 61 105 65 101 65 96"></polyline>
@@ -1339,7 +1352,7 @@ class Circuit extends Component {
             <polyline id="path"
                       points="149 101 153 101 157 97 205 97 224.026298 77.9737024 236.000029 77.9737024"></polyline>
           </g>
-          <g id="C3" transform="translate(1024.000000, 904.000000)">
+          {/*<g id="C3" transform="translate(1024.000000, 904.000000)">
             <polyline id="path"
                       points="56 112 203 112 236 145 236 236 308 308 380 308 400 288 440 288 472 320 524 320 528 316 528 308"></polyline>
             <polyline id="path"
@@ -1354,7 +1367,7 @@ class Circuit extends Component {
             <path d="M36,132 L36,124" id="path"></path>
             <polyline id="path" points="0 4 0 0 0 80 8 88 12 88 16 88"></polyline>
             <polyline id="path" points="64 136 60 136 52 128 52 124"></polyline>
-          </g>
+          </g>*/}
           <g id="C2" transform="translate(2199.000000, 691.000000)">
             <polyline id="path" points="85 165 85 129 93 121 93 109 93 41 102 32"></polyline>
             <polyline id="path"
