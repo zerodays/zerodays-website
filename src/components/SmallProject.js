@@ -145,7 +145,7 @@ SmallProject.propTypes = {
   backgroundSize: PropTypes.string,
   tags: PropTypes.array.isRequired,
   frameworkTags: PropTypes.array.isRequired,
-  bottomPadding: PropTypes.array.isRequired,
+  bottomPadding: PropTypes.bool,
 };
 
 export default withStyles(styles)(SmallProject);
