@@ -6,7 +6,7 @@ import {
   Box,
   Container,
   Card,
-  Dialog, DialogContent, Hidden,
+  Hidden,
 } from '@material-ui/core';
 import { defaultStyles } from '../util/styles';
 import clsx from 'clsx';
@@ -194,15 +194,15 @@ class LandingPage extends Component {
             <Box mt={5} pt={5}>
               <Grid container direction='row' justify='center' spacing={3}>
                 <Hidden smDown><Grid item xs={12}/></Hidden>
-                {this.getMember('Matej Marinko', 'matej.marinko@404.si', 'matejm', strings.matejDescription)}
+                {this.getMember('Matej Marinko', 'matej.marinko@404.si', 'matejm', strings.matejDescription())}
                 <Hidden lgUp><Grid item xs={12}/></Hidden>
-                {this.getMember('Vid Drobnič', 'vid.drobnic@404.si', 'dzinvision', strings.vidDescription)}
+                {this.getMember('Vid Drobnič', 'vid.drobnic@404.si', 'dzinvision', strings.vidDescription())}
                 <Hidden lgUp><Grid item xs={12}/></Hidden>
-                {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@404.si', 'zigapk', strings.zigaDescription)}
+                {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@404.si', 'zigapk', strings.zigaDescription())}
                 <Grid item xs={12}>
                   <Box pb={5} my={5}>
                     <div className={clsx(classes.subTitle, classes.textCenter)}>
-                      {strings.contact}
+                      {strings.contact()}
                     </div>
                   </Box>
                 </Grid>
@@ -273,12 +273,12 @@ class LandingPage extends Component {
 
   getProjectsList = () => {
     return <Fragment>
-      {this.getProject(strings.spectreTitle, strings.spectreDescription,
+      {this.getProject(strings.spectreTitle, strings.spectreDescription(),
         <Spectre/>, [TagsEnum.robotics, TagsEnum.sys_admin], ['python', 'react'], true)}
-      {this.getProject(strings.gremTitle, strings.gremDescription, this.getImageComponent(ImgGrem), [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login', 'firebase'])}
+      {this.getProject(strings.gremTitle, strings.gremDescription(), this.getImageComponent(ImgGrem), [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login', 'firebase'])}
 
-      {this.getProject(strings.sistem404Title, strings.sistem404Description, this.getImageComponent(Img404), [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'minimax', 'google login', 'google calendar'])}
-      {this.getProject(null, strings.make3dDescription,
+      {this.getProject(strings.sistem404Title, strings.sistem404Description(), this.getImageComponent(Img404), [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'minimax', 'google login', 'google calendar'])}
+      {this.getProject(null, strings.make3dDescription(),
         <Make3d/>, [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'firebase', 'here maps'], true)}
 
       <Hidden lgDown>
@@ -291,16 +291,16 @@ class LandingPage extends Component {
         <Grid item xs={1}/>
       </Hidden>
       <SmallProject backgroundImage={olloBcgImage} logoImage={olloLogo} dark
-                    description={strings.olloDescription} tags={[TagsEnum.backend]}
+                    description={strings.olloDescription()} tags={[TagsEnum.backend]}
                     bcgOpacity={0.1}
                     frameworkTags={['go', 'shopify', 'minimax']}
 
       />
-      <SmallProject backgroundImage={otoBcgImage} description={strings.otoDescription} bcgOpacity={0}
+      <SmallProject backgroundImage={otoBcgImage} description={strings.otoDescription()} bcgOpacity={0}
                     tags={[TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend]}
                     frameworkTags={['django', 'flutter']}
                     backgroundSize='auto 96%'/>
-      <SmallProject backgroundImage={dilaBcgImage} dark description={strings.dilaDescription} bcgOpacity={0.1}
+      <SmallProject backgroundImage={dilaBcgImage} dark description={strings.dilaDescription()} bcgOpacity={0.1}
                     frameworkTags={['django', 'bootstrap', 'paypal']}
                     tags={[TagsEnum.web, TagsEnum.backend]}/>
       <Hidden lgDown>
@@ -309,21 +309,21 @@ class LandingPage extends Component {
         <Grid item xs={1}/>
       </Hidden>
 
-      <SmallProject logoImage={sievaLogo} logoGridWidth={6} description={strings.sievaDescription}
+      <SmallProject logoImage={sievaLogo} logoGridWidth={6} description={strings.sievaDescription()}
                     tags={[TagsEnum.backend]} frameworkTags={['django', 'stripe']}/>
-      <SmallProject backgroundImage={wool2loopImage} dark description={strings.wool2loopDescription}
+      <SmallProject backgroundImage={wool2loopImage} dark description={strings.wool2loopDescription()}
                     tags={[TagsEnum.web, TagsEnum.backend]} frameworkTags={['go', 'react']} bcgOpacity={0.35}/>
-      <SmallProject backgroundImage={zascitimoImage} description={strings.zascitimoSiDescription} bcgOpacity={0}
+      <SmallProject backgroundImage={zascitimoImage} description={strings.zascitimoSiDescription()} bcgOpacity={0}
                     tags={[TagsEnum.web, TagsEnum.backend]} frameworkTags={['django', 'bootstrap']}
                     backgroundSize='auto 90%'/>
       <Hidden lgDown>
         <Grid item xs={1}/>
       </Hidden>
 
-      <SmallProject logoImage={skozBcgImage} logoGridWidth={6} description={strings.skozDescription}
+      <SmallProject logoImage={skozBcgImage} logoGridWidth={6} description={strings.skozDescription()}
                     frameworkTags={['django', 'bootstrap']}
                     bcgOpacity={0} tags={[TagsEnum.web, TagsEnum.backend]}/>
-      <SmallProject description={strings.thisWebsite}
+      <SmallProject description={strings.thisWebsite()}
                     bottomPadding
                     dark
                     logoImage={zerodaysLogo}

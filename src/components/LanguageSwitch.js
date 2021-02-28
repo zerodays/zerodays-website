@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { defaultStyles } from '../util/styles';
 import {
-  Paper,
   withStyles,
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
@@ -55,7 +54,7 @@ class LanguageSwitch extends Component {
       <ToggleButton value='en' className={language === 'en' ? classes.toggleButtonActive : classes.toggleButtonInactive}>
         english
       </ToggleButton>
-      <ToggleButton value='si' className={language === 'si' ? classes.toggleButtonActive : classes.toggleButtonInactive}>
+      <ToggleButton value='sl' className={language === 'sl' ? classes.toggleButtonActive : classes.toggleButtonInactive}>
         slovenščina
       </ToggleButton>
     </ToggleButtonGroup>;
