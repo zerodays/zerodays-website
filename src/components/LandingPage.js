@@ -63,7 +63,7 @@ const styles = theme => ({
     clipPath: 'inset(-15px -5px 0px -5px)',
   },
   projects: {
-    background: 'white',
+    backgroundColor: grey[50],
   },
   project: {
     height: '100%',
@@ -128,7 +128,7 @@ const styles = theme => ({
     zIndex: 1,
   },
   bgWhite: {
-    backgroundColor: 'white',
+    backgroundColor: grey[50],
   },
 });
 
