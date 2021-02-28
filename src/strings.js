@@ -10,8 +10,7 @@ const strings = new LocalizedStrings({
   en: {
     // app name
     companyName: 'zerodays',
-    companySubtitle: 'Customized software development.',
-    ourProjectsInclude: 'Our past projects include',
+    companySubtitle: 'software development team',
 
     // tags
     web: 'web',
@@ -22,7 +21,6 @@ const strings = new LocalizedStrings({
     robotics: 'robotics',
 
     // zeroday description
-    prefix: 'A',
     zerodayDescription: (classes) => (
       <Fragment>
         <Typography className={clsx(classes.description, classes.textCenter, classes.textBlack)}>

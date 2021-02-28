@@ -36,7 +36,6 @@ const styles = theme => ({
   ...defaultStyles(theme),
   title: {
     fontSize: 60,
-    cursor: 'pointer',
   },
   subTitle: {
     fontSize: 18,
@@ -133,30 +132,6 @@ const styles = theme => ({
 });
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dialogOpen: false,
-    };
-  }
-
-  getDialog = () => {
-    const {classes} = this.props;
-    return <Dialog open={this.state.dialogOpen} onClose={this.closeDialog} PaperProps={{
-      style: {
-        backgroundColor: 'white',
-      },
-    }} fullWidth maxWidth='sm'>
-      <DialogContent>
-        <Box p={3}>
-          {strings.zerodayDescription(classes)}
-        </Box>
-      </DialogContent>
-    </Dialog>;
-  };
-
-  openDialog = () => this.setState({dialogOpen: true});
-  closeDialog = () => this.setState({dialogOpen: false});
 
   getMember = (name, email, ghUsername, description) => {
     const {classes} = this.props;
@@ -363,15 +338,8 @@ class LandingPage extends Component {
           <Container maxWidth='xl'>
             <Box pt={2} pb={5}>
               <Grid container direction='row' justify='center' spacing={4}>
-
-                <Grid item xs={12}>
-                  <Box pb={3} pt={3}>
-                    <Typography
-                      className={clsx(classes.textBlack, classes.textCenter, classes.subTitle)}>
-                      {strings.ourProjectsInclude}:
-                    </Typography>
-                  </Box>
-                </Grid>
+                <Grid item xs={12}/>
+                <Grid item xs={12}/>
 
                 {this.getProjectsList()}
               </Grid>
@@ -399,8 +367,7 @@ class LandingPage extends Component {
               <Grid item>
                 <Container maxWidth='lg'>
                   <Box pt={2} mt={5} pb={1}>
-                    <Typography variant='h1' className={clsx(classes.title, classes.textCenter)}
-                                onClick={this.openDialog}>{strings.companyName}</Typography>
+                    <Typography variant='h1' className={clsx(classes.title, classes.textCenter)}>{strings.companyName}</Typography>
                   </Box>
                 </Container>
               </Grid>
@@ -433,7 +400,6 @@ class LandingPage extends Component {
       <Grid item xs={12}>
         {this.getFooter()}
       </Grid>
-      {this.getDialog()}
     </Grid>;
   }
 }
