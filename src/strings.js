@@ -2,6 +2,7 @@ import LocalizedStrings from 'react-localization';
 import React, { Fragment } from 'react';
 import { Typography } from '@material-ui/core';
 import clsx from 'clsx';
+import { LOCAL_STORAGE_KEY_LANGUAGE } from './util/helpers';
 
 const languages = ['en', 'sl'];
 
@@ -199,7 +200,9 @@ const strings = new LocalizedStrings({
   },
 });
 
-strings.setLanguage('en');
+// read language preference from local storage
+const languagePref = window.localStorage.getItem(LOCAL_STORAGE_KEY_LANGUAGE);
+strings.setLanguage(languagePref ? languagePref : 'en');
 
 export { languages };
 export default strings;

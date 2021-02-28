@@ -29,8 +29,9 @@ import Make3d from './Make3d';
 import Spectre from './Spectre';
 import SmallProject from './SmallProject';
 import Tags from './Tags';
-import { TagsEnum } from '../util/helpers';
+import { LOCAL_STORAGE_KEY_LANGUAGE, TagsEnum } from '../util/helpers';
 import Circuit from './circuit/Circuit';
+import LanguageSwitch from './LanguageSwitch';
 
 const styles = theme => ({
   ...defaultStyles(theme),
@@ -132,6 +133,14 @@ const styles = theme => ({
 });
 
 class LandingPage extends Component {
+  setLanguage = language => {
+    // remember choice
+    console.log(language);
+    window.localStorage.setItem(LOCAL_STORAGE_KEY_LANGUAGE, language);
+
+    strings.setLanguage(language);
+    this.forceUpdate(); // rerender everything
+  };
 
   getMember = (name, email, ghUsername, description) => {
     const {classes} = this.props;
@@ -173,10 +182,6 @@ class LandingPage extends Component {
         </Grid>
       </Box>
     </Grid>;
-  };
-
-  openExternalUrl = url => {
-    if (url != null) window.open(url, '_blank');
   };
 
   getFooter = () => {
@@ -359,15 +364,46 @@ class LandingPage extends Component {
     return <div className={classes.headerShadowContainer}>
       <div className={classes.header}>
         <div className={classes.circuit}>
-          <Circuit height={320}/>
+          <Circuit height={300}/>
         </div>
         <div className={classes.headerContent}>
           <Box>
             <Grid container direction='row' justify='center'>
+              <Grid item xs={12}>
+                <Container maxWidth='xl'>
+                  {/* hidden on small devices */}
+                  <Hidden smDown>
+                    <Grid container direction='row' justify='flex-end'>
+                      <Grid item>
+                        <Box pt={2}>
+                          <LanguageSwitch onLanguageChanged={this.setLanguage}/>
+                        </Box>
+                      </Grid>
+                      <Hidden lgDown>
+                        <Grid item xs={1}/>
+                      </Hidden>
+                    </Grid>
+                  </Hidden>
+
+                  {/* hidden on big devices */}
+                  <Hidden mdUp>
+                    <Grid container direction='row' justify='center'>
+                      <Grid item>
+                        <Box pt={2} px={1}>
+                          <LanguageSwitch onLanguageChanged={this.setLanguage}/>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Hidden>
+                </Container>
+
+              </Grid>
+
               <Grid item>
                 <Container maxWidth='lg'>
-                  <Box pt={2} mt={5} pb={1}>
-                    <Typography variant='h1' className={clsx(classes.title, classes.textCenter)}>{strings.companyName}</Typography>
+                  <Box pt={3} pb={1}>
+                    <Typography variant='h1'
+                                className={clsx(classes.title, classes.textCenter)}>{strings.companyName}</Typography>
                   </Box>
                 </Container>
               </Grid>
