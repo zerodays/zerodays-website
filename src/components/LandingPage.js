@@ -135,7 +135,6 @@ const styles = theme => ({
 class LandingPage extends Component {
   setLanguage = language => {
     // remember choice
-    console.log(language);
     window.localStorage.setItem(LOCAL_STORAGE_KEY_LANGUAGE, language);
 
     strings.setLanguage(language);
@@ -214,7 +213,7 @@ class LandingPage extends Component {
     </div>;
   };
 
-  getProject = (title, text, image, tags, frameworkTags, dark) => {
+  getProject = (text, image, tags, frameworkTags, dark) => {
     const {classes} = this.props;
 
     return <Grid item xs={12} lg={6} xl={5} className={dark ? classes.textWhite : classes.textBlack}>
@@ -224,17 +223,9 @@ class LandingPage extends Component {
             image
           }
 
-          {title == null ? <Grid item xs={12}>
-              <Box pt={3}/>
-            </Grid>
-            : <Grid item xs={12}>
-              <Box px={4} pt={1} pb={3}>
-                <Typography className={clsx(classes.subTitle, classes.textCenter)}>
-                  {title}
-                </Typography>
-              </Box>
-            </Grid>
-          }
+          <Grid item xs={12}>
+            <Box pt={3}/>
+          </Grid>
 
           <Grid item xs={12}>
             <Box px={4} pb={5}>
@@ -273,12 +264,12 @@ class LandingPage extends Component {
 
   getProjectsList = () => {
     return <Fragment>
-      {this.getProject(strings.spectreTitle, strings.spectreDescription(),
+      {this.getProject(strings.spectreDescription(),
         <Spectre/>, [TagsEnum.robotics, TagsEnum.sys_admin], ['python', 'react'], true)}
-      {this.getProject(strings.gremTitle, strings.gremDescription(), this.getImageComponent(ImgGrem), [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login', 'firebase'])}
+      {this.getProject(strings.gremDescription(), this.getImageComponent(ImgGrem), [TagsEnum.web, TagsEnum.android, TagsEnum.ios, TagsEnum.backend, TagsEnum.sys_admin], ['django', 'flutter', 'react', 'bootstrap', 'safecharge', 'google login', 'facebook login', 'firebase'])}
 
-      {this.getProject(strings.sistem404Title, strings.sistem404Description(), this.getImageComponent(Img404), [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'minimax', 'google login', 'google calendar'])}
-      {this.getProject(null, strings.make3dDescription(),
+      {this.getProject(strings.sistem404Description(), this.getImageComponent(Img404), [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'minimax', 'google login', 'google calendar'])}
+      {this.getProject(strings.make3dDescription(),
         <Make3d/>, [TagsEnum.web, TagsEnum.backend, TagsEnum.sys_admin], ['go', 'react', 'stripe', 'firebase', 'here maps'], true)}
 
       <Hidden lgDown>

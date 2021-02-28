@@ -13,8 +13,7 @@ const styles = theme => ({
   ...defaultStyles(theme),
   root: {
     borderRadius: 0,
-    // backgroundColor: 'red',
-    overflow: 'hidden',
+    opacity: 0.8,
   },
   toggleButtonActive: {
     borderRadius: 0,
