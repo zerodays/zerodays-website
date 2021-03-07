@@ -199,11 +199,7 @@ class LandingPage extends Component {
                 <Hidden lgUp><Grid item xs={12}/></Hidden>
                 {this.getMember('Žiga Patačko Koderman', 'ziga.patacko@404.si', 'zigapk', strings.zigaDescription())}
                 <Grid item xs={12}>
-                  <Box pb={5} my={5}>
-                    <div className={clsx(classes.subTitle, classes.textCenter)}>
-                      {strings.contact()}
-                    </div>
-                  </Box>
+                  <Box pb={3}/>
                 </Grid>
               </Grid>
             </Box>
