@@ -13,12 +13,12 @@ const styles = theme => ({
   ...defaultStyles(theme),
   root: {
     borderRadius: 0,
-    opacity: 0.8,
+    opacity: 0.9,
   },
   toggleButtonActive: {
     borderRadius: 0,
     backgroundColor: `white !important`,
-    opacity: 0.9,
+    opacity: 0.95,
     color: `${bgColor} !important`,
     paddingTop: 2,
     paddingBottom: 2,
@@ -29,7 +29,7 @@ const styles = theme => ({
     borderRadius: 0,
     backgroundColor: `${bgColor} !important`,
     color: `${grey[100]} !important`,
-    opacity: 0.8,
+    opacity: 0.9,
     paddingTop: 2,
     paddingBottom: 2,
     paddingLeft: 10,

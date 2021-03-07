@@ -584,7 +584,7 @@ class Circuit extends Component {
 
 
         <g id="static" transform="translate(48.000000, 56.000000)"
-           stroke={componentsColor == null ? '#222222' : componentsColor} strokeWidth="2" fill="none"
+           stroke={componentsColor == null ? '#282828' : componentsColor} strokeWidth="2" fill="none"
            fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
           <rect x="132" y="0" width="48" height="48" rx="4"></rect>
           <circle cx="172" cy="200" r="4"></circle>
@@ -896,7 +896,7 @@ class Circuit extends Component {
           <circle cx="1811" cy="1280" r="4"></circle>
         </g>
 
-        <g id="paths-bg" transform="translate(0.000000, 0.000000)" stroke={wiresColor == null ? '#222222' : wiresColor}
+        <g id="paths-bg" transform="translate(0.000000, 0.000000)" stroke={wiresColor == null ? '#282828' : wiresColor}
            strokeWidth="2" fill="none"
            fillRule="evenodd" strokeLinecap="round" strokeLinejoin="round">
           <g id="C23" transform="translate(176.000000, 0.000000)">
