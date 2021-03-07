@@ -1,7 +1,5 @@
 import LocalizedStrings from 'react-localization';
 import React, { Fragment } from 'react';
-import { Typography } from '@material-ui/core';
-import clsx from 'clsx';
 import { LOCAL_STORAGE_KEY_LANGUAGE } from './util/helpers';
 
 const strings = new LocalizedStrings({
@@ -139,8 +137,6 @@ const strings = new LocalizedStrings({
         <li>web developer</li>
       </ul>
     </Fragment>,
-
-    contact: () => <Fragment>If you have a great idea (or a bad one indeed) we'd love to hear from you.</Fragment>,
   },
   sl: {
     // app name
@@ -279,8 +275,6 @@ const strings = new LocalizedStrings({
         <li>spletni razvijalec</li>
       </ul>
     </Fragment>,
-
-    contact: () => <Fragment>Če imate dobro idejo, se nam oglasite.</Fragment>,
   },
 });
 
