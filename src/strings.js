@@ -60,7 +60,7 @@ const strings = new LocalizedStrings({
       of Slovenia</a> APIs were
       integrated into the retail and distribution workflow of the <a target='_blank' rel='noopener noreferrer'
                                                                      href='https://olloaudio.com/'>Ollo
-      Audio</a> company. <span>The project was led by <a
+      Audio</a> company. <span>The project was developed under <a
       target='_blank' rel='noopener noreferrer' href='https://404.si'>Zavod 404</a>.</span>
     </Fragment>,
 
@@ -90,7 +90,7 @@ const strings = new LocalizedStrings({
     // wool2loop
     wool2loopDescription: () => <Fragment>
       <a target='_blank' rel='noopener noreferrer' href="https://www.wool2loop.eu/en/">Wool2loop</a> is a web platform
-      designed for submission and oversight of 3D models made from recycled mineral wool waste. <span>Developed under <a
+      designed for submission and oversight of 3D models made from recycled mineral wool waste. <span>The project was developed under <a
       target='_blank' rel='noopener noreferrer' href='https://404.si'>Zavod 404</a>.</span>
     </Fragment>,
 
@@ -109,7 +109,8 @@ const strings = new LocalizedStrings({
       schools. It was developed as a national project in collaboration with <a target='_blank'
                                                                                rel='noopener noreferrer'
                                                                                href='https://404.si'>Zavod
-      404</a> and <a target='_blank' rel='noopener noreferrer' href='https://gimvic.org'>Gimnazija Vič</a>.
+      404</a> and <a target='_blank' rel='noopener noreferrer' href='https://gimvic.org'>Gimnazija Vič</a>. <span>The project was developed under <a
+      target='_blank' rel='noopener noreferrer' href='https://404.si'>Zavod 404</a>.</span>
     </Fragment>,
 
     // zerodays.dev
@@ -247,12 +248,14 @@ const strings = new LocalizedStrings({
                                                                                                href='https://gimvic.org'>Gimnazijo
       Vič</a>. Srednjim
       šolam omogoča kakovostno karierno
-      usmerjanje nadarjenih dijakov.
+      usmerjanje nadarjenih dijakov. <span>Projekt razvit pod okriljem <a
+      target='_blank' rel='noopener noreferrer' href='https://404.si'>Zavoda 404</a></span>
     </Fragment>,
 
     // zerodays.dev
     thisWebsite: () => <Fragment>
-      spletna stran <a target='_blank' rel='noopener noreferrer' href='https://zerodays.dev'>zerodays.dev</a><br/>(seveda smo jo naredili sami)
+      spletna stran <a target='_blank' rel='noopener noreferrer' href='https://zerodays.dev'>zerodays.dev</a><br/>(seveda
+      smo jo naredili sami)
     </Fragment>,
 
     matejDescription: () => <Fragment>
