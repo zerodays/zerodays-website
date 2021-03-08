@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.ce418b29.chunk.css",
-    "main.js": "/static/js/main.0bfd6910.chunk.js",
-    "main.js.map": "/static/js/main.0bfd6910.chunk.js.map",
+    "main.js": "/static/js/main.d261af3b.chunk.js",
+    "main.js.map": "/static/js/main.d261af3b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.b93f3fd0.js",
     "runtime-main.js.map": "/static/js/runtime-main.b93f3fd0.js.map",
     "static/js/2.9d71ae5e.chunk.js": "/static/js/2.9d71ae5e.chunk.js",
@@ -22,15 +22,12 @@
     "static/media/sieva_logo.09555229.png": "/static/media/sieva_logo.09555229.png",
     "static/media/skoz.aa5d3412.svg": "/static/media/skoz.aa5d3412.svg",
     "static/media/spectre_logo.9b2c68f0.svg": "/static/media/spectre_logo.9b2c68f0.svg",
-    "static/media/wool2loop.3e6d295c.jpeg": "/static/media/wool2loop.3e6d295c.jpeg",
-    "static/media/zascitimo.ba519c9c.png": "/static/media/zascitimo.ba519c9c.png",
-    "static/media/zerodays.601981f2.jpg": "/static/media/zerodays.601981f2.jpg",
-    "static/media/zerodays_logo_transparent.4590aebe.svg": "/static/media/zerodays_logo_transparent.4590aebe.svg"
+    "static/media/zascitimo.ba519c9c.png": "/static/media/zascitimo.ba519c9c.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b93f3fd0.js",
     "static/js/2.9d71ae5e.chunk.js",
     "static/css/main.ce418b29.chunk.css",
-    "static/js/main.0bfd6910.chunk.js"
+    "static/js/main.d261af3b.chunk.js"
   ]
 }
