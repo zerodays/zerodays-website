@@ -16,10 +16,10 @@ import olloBcgImage from '../res/img/projects/ollo.jpg';
 import olloLogo from '../res/img/projects/ollo_logo.png';
 import Img404 from '../res/img/projects/404.png';
 import dilaBcgImage from '../res/img/projects/dilaboards.jpg';
-import zerodaysLogo from '../res/img/zerodays_logo_transparent.svg';
-import zerodaysBcg from '../res/img/projects/zerodays.jpg';
+// import zerodaysLogo from '../res/img/zerodays_logo_transparent.svg';
+// import zerodaysBcg from '../res/img/projects/zerodays.jpg';
 import skozBcgImage from '../res/img/projects/skoz.svg';
-import wool2loopImage from '../res/img/projects/wool2loop.jpeg';
+// import wool2loopImage from '../res/img/projects/wool2loop.jpeg';
 import otoBcgImage from '../res/img/projects/oto.png';
 import zascitimoImage from '../res/img/projects/zascitimo.png';
 import sievaLogo from '../res/img/projects/sieva_logo.png';
@@ -293,32 +293,32 @@ class LandingPage extends Component {
       <Hidden lgDown>
         <Grid item xs={1}/>
         <Grid item xs={0}/>
-        <Grid item xs={1}/>
+        {/*<Grid item xs={1}/>*/}
       </Hidden>
 
       <SmallProject logoImage={sievaLogo} logoGridWidth={6} description={strings.sievaDescription()}
                     tags={[TagsEnum.backend]} frameworkTags={['django', 'stripe']}/>
-      <SmallProject backgroundImage={wool2loopImage} dark description={strings.wool2loopDescription()}
-                    tags={[TagsEnum.web, TagsEnum.backend]} frameworkTags={['go', 'react']} bcgOpacity={0.35}/>
+      {/*<SmallProject backgroundImage={wool2loopImage} dark description={strings.wool2loopDescription()}*/}
+      {/*              tags={[TagsEnum.web, TagsEnum.backend]} frameworkTags={['go', 'react']} bcgOpacity={0.35}/>*/}
       <SmallProject backgroundImage={zascitimoImage} description={strings.zascitimoSiDescription()} bcgOpacity={0}
                     tags={[TagsEnum.web, TagsEnum.backend]} frameworkTags={['django', 'bootstrap']}
                     backgroundSize='auto 90%'/>
-      <Hidden lgDown>
-        <Grid item xs={1}/>
-      </Hidden>
+      {/*<Hidden lgDown>*/}
+      {/*  <Grid item xs={1}/>*/}
+      {/*</Hidden>*/}
 
       <SmallProject logoImage={skozBcgImage} logoGridWidth={6} description={strings.skozDescription()}
                     frameworkTags={['django', 'bootstrap']}
                     bcgOpacity={0} tags={[TagsEnum.web, TagsEnum.backend]}/>
-      <SmallProject description={strings.thisWebsite()}
-                    bottomPadding
-                    dark
-                    logoImage={zerodaysLogo}
-                    backgroundImage={zerodaysBcg}
-                    frameworkTags={['react']}
-                    logoGridWidth={4}
-                    bcgOpacity={0.6}
-                    tags={[TagsEnum.web]}/>
+      {/*<SmallProject description={strings.thisWebsite()}*/}
+      {/*              bottomPadding*/}
+      {/*              dark*/}
+      {/*              logoImage={zerodaysLogo}*/}
+      {/*              backgroundImage={zerodaysBcg}*/}
+      {/*              frameworkTags={['react']}*/}
+      {/*              logoGridWidth={4}*/}
+      {/*              bcgOpacity={0.6}*/}
+      {/*              tags={[TagsEnum.web]}/>*/}
     </Fragment>;
   };
 
